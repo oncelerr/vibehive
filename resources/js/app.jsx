@@ -1,36 +1,47 @@
 import './bootstrap';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import { AuthProvider } from './contexts/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import Login from './Pages/Login/Login';
-import Dashboard from './Pages/Dashboard/Dashboard';
 import Home from './Pages/Home/Home';
-import CMSLayout from './components/CMSLayout/CMSLayout';
+import Curve from './components/Curve';
 
+function AnimatedRoutes() {
+    const location = useLocation();
 
-function App() {
     return (
-        <Routes>
-            {/* Public Routes */}
-            <Route path="/login" element={<Login />} />
-            
-            {/* Protected Route with CMS Layout */}
-            <Route path="/" element={<Home />} />
-        </Routes>
+        <AnimatePresence mode="wait">
+            <Routes location={location} key={location.pathname}>
+                <Route path="/login" element={
+                    <Curve>
+                        <Login />
+                    </Curve>
+                } />
+                <Route path="/" element={
+                    <Curve>
+                        <Home />
+                    </Curve>
+                } />
+            </Routes>
+        </AnimatePresence>
     );
 }
 
-// Mount React app with routing
-const container = document.getElementById('app');
-if (container) {
-    const root = createRoot(container);
-    root.render(
+function App() {
+    return (
         <BrowserRouter>
             <AuthProvider>
-                <App />
+                <AnimatedRoutes />
             </AuthProvider>
         </BrowserRouter>
     );
+}
+
+const container = document.getElementById('app');
+if (container) {
+    const root = createRoot(container);
+    root.render(<App />);
 }
