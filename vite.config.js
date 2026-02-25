@@ -11,6 +11,10 @@ export default defineConfig({
         },
     },
 
+    optimizeDeps: {
+        include: ['@tinymce/tinymce-react']
+    },
+
     plugins: [
         laravel({
             input: ['resources/css/app.scss', 'resources/js/app.jsx'],

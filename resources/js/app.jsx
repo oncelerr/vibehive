@@ -1,40 +1,24 @@
 import './bootstrap';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import Login from './Pages/Login/Login';
-import Inner from './components/Inner/Inner';
-import Dashboard from './components/Dashboard';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import Home from './Pages/Home/Home';
+import CMSLayout from './components/CMSLayout/CMSLayout';
 
 
-// Component to handle animated route transitions
-function AnimatedRoutes() {
-    const location = useLocation();
-
-    const ExternalRedirect = ({ url }) => {
-        React.useEffect(() => {
-            window.location.href = url;
-        }, [url]);
-
-        return <div>Redirecting...</div>;
-    };
-
+function App() {
     return (
-        <AnimatePresence mode="wait">
-            <Routes location={location} key={location.pathname}>
-                <Route path="/login" element={<Login />} />
-                <Route path="/" element={
-                    <ProtectedRoute>
-                        <Inner>
-                            <Dashboard />
-                        </Inner>
-                    </ProtectedRoute>
-                } />
-            </Routes>
-        </AnimatePresence>
+        <Routes>
+            {/* Public Routes */}
+            <Route path="/login" element={<Login />} />
+            
+            {/* Protected Route with CMS Layout */}
+            <Route path="/" element={<Home />} />
+        </Routes>
     );
 }
 
@@ -45,7 +29,7 @@ if (container) {
     root.render(
         <BrowserRouter>
             <AuthProvider>
-                <AnimatedRoutes />
+                <App />
             </AuthProvider>
         </BrowserRouter>
     );

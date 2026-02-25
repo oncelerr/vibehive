@@ -1,0 +1,105 @@
+p {
+    font-family: Outfit;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.sidenavwrp {
+    background-color: #141A37;
+    width: 281px;
+    height: 100vh;
+    flex-shrink: 0;
+    padding: 29px 26px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    p {
+        color: #FFF;
+        font-family: "Surgena";
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+    }
+}
+
+.hr {
+    width: calc(100% + 52px);
+    margin-left: -26px;
+    height: 1px;
+    background-color: #380054;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.dropdownwrp {
+    display: flex;
+    padding: 12px 16px 14px 16px;
+    flex-direction: row;
+    gap: 16px;
+    align-self: stretch;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+
+    p {
+        color: #FFF;
+        font-size: 16px;
+        font-weight: 500;
+        margin: 0;
+    }
+
+    .chevron {
+        margin-left: auto;
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .chevronOpen {
+        transform: rotate(180deg);
+    }
+}
+
+.dropdownwrp:hover {
+    background-color: #293570;
+}
+
+.dropdownMenu {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.dropdownItem {
+    display: flex;
+    padding: 12px 16px;
+    align-items: center;
+    gap: 16px;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+
+    p {
+        color: #FFF;
+        font-size: 16px;
+        font-weight: 500;
+        margin: 0;
+    }
+
+    &:hover {
+        background-color: #293570;
+    }
+
+    &.active {
+        background-color: #7C3AED;
+    }
+
+    &.active:hover {
+        background-color: #8B5CF6;
+    }
+}
