@@ -5,9 +5,9 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { AuthProvider } from './contexts/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
-import Login from './Pages/Login/Login';
 import Home from './Pages/Home/Home';
 import Curve from './components/Curve';
+import Navbar from './components/Navbar/Index';
 
 function AnimatedRoutes() {
     const location = useLocation();
@@ -15,11 +15,6 @@ function AnimatedRoutes() {
     return (
         <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>
-                <Route path="/login" element={
-                    <Curve>
-                        <Login />
-                    </Curve>
-                } />
                 <Route path="/" element={
                     <Curve>
                         <Home />
@@ -34,6 +29,7 @@ function App() {
     return (
         <BrowserRouter>
             <AuthProvider>
+                <Navbar />
                 <AnimatedRoutes />
             </AuthProvider>
         </BrowserRouter>

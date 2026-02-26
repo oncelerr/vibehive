@@ -5,13 +5,33 @@
   font-style: normal;
 }
 
-p {
+h1 {
+  font-family: "Surgena";
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 114%;
+  letter-spacing: -0.96px;
   color: #FFF;
-  font-family: "DM Sans";
-  font-size: 14px;
+}
+
+h3 {
+  font-family: "Outfit";
+  font-size: 32px;
   font-style: normal;
   font-weight: 500;
-  line-height: 25.817px;
+  line-height: 114%;
+  letter-spacing: -1%;
+  color: #FFF;
+}
+
+p {
+  color: #FFF;
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 152%;
 }
 
 h6 {
@@ -40,7 +60,7 @@ body,
 }
 
 body {
-  background-color: #F8FAFB;
+  background-color: #060C22;
   overflow-x: hidden;
   width: 100%;
   max-width: 100%;

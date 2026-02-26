@@ -1,0 +1,37 @@
+.button {
+    all: unset;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 152%;
+    font-family: "Surgena";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.gradient {
+    background: linear-gradient(to right,
+            #BA2FFC 0%,
+            #B529FD 16%,
+            #B123FD 32%,
+            #A617F8 75%,
+            #C836F2 87%,
+            #EB55EC 100%);
+    color: white;
+}
+
+.white {
+    background: white;
+    color: #000;
+    border: 1px solid #ddd;
+}
+
+.arrow {
+    width: 10px;
+    height: 10px;
+    object-fit: contain;
+}
