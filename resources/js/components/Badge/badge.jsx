@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Badge({ text }) {
+export default function Badge({ text , style = {}}) {
 
     return (
         <>
@@ -18,8 +18,9 @@ export default function Badge({ text }) {
                 marginBottom: '24px',
                 border: '1px solid #B123FD',
                 textTransform: 'uppercase',
-                width: '143px',
+                width: 'fit-content',
                 height: '47px',
+                ...style
             }}>
                 {text}
             </div >

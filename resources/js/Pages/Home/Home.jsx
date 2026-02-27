@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styles from './Home.module.scss';
-import Hero from './Hero';
-import System from './System';
+import Hero from './Sections/Hero/Hero';
+import System from './Sections/System/System';
+import HowWeWork from './Sections/HowWeWork/HowWeWork';
+import OurWorks from './Sections/OurWorks/OurWorks';
 
 const Home = () => {
 
@@ -10,6 +12,8 @@ const Home = () => {
       <div className={styles.homeContainer}>
         <Hero />
         <System />
+        <HowWeWork />
+        <OurWorks />
       </div>
     </>
   );

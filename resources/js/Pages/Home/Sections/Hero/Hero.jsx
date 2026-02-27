@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import styles from './Home.module.scss';
-import Button from '../../components/GradientButton/button';
+import styles from './Hero.module.scss';
+import Button from '../../../../components/GradientButton/button';
 
 const Hero = () => {
 

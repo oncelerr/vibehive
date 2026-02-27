@@ -57,6 +57,13 @@ body,
 #app {
   width: 100%;
   max-width: 100vw;
+
+  scrollbar-width: none; // 👈 Firefox
+  -ms-overflow-style: none; // 👈 IE/Edge
+
+  &::-webkit-scrollbar {
+    display: none; // 👈 Chrome/Safari
+  }
 }
 
 body {

@@ -1,0 +1,32 @@
+.systemContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 144px;
+    margin-bottom: 95px;
+    gap: 16px;
+}
+
+.systemCardCont {
+    margin-top: 29px;
+    display: flex;
+    gap: 24px;
+}
+
+.systemH3 {
+    font-family: 'Outfit';
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.systemSpan {
+    font-family: 'Outfit';
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.2;
+    text-align: center;
+    color: #B123FD;
+}

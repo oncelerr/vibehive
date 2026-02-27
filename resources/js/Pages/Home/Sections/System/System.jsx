@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './Home.module.scss';
-import Badge from '../../components/Badge/badge';
-import Card from '../../components/Card/card';
+import styles from './System.module.scss';
+import Badge from '../../../../components/Badge/badge';
+import Card from '../../../../components/Card/card';
 
 const System = () => {
 
