@@ -1,0 +1,105 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('/assets/founderGrid.png');
+    background-size: 1656px 1556px;     // ← locks width, height scales proportionally
+    background-position: center 200px;
+    background-repeat: no-repeat;
+    padding-top: 102px;
+    overflow: visible;
+    width: 100%;
+    height: 1841.87px;
+}
+
+.h1 {
+    font-family: 'Outfit';
+    font-size: 48px;
+    font-weight: 800;
+    color: white;
+    text-align: center;
+}
+
+.h12 {
+    font-family: 'Outfit';
+    font-size: 48px;
+    font-weight: 800;
+    color: white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.span {
+    background: linear-gradient(to right,
+            #BA2FFC 0%,
+            #B529FD 16%,
+            #B123FD 32%,
+            #A617F8 75%,
+            #C836F2 87%,
+            #EB55EC 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+}
+
+.span1 {
+    margin-left: 15px;
+    background: linear-gradient(to right,
+            #BA2FFC 0%,
+            #B529FD 16%,
+            #B123FD 32%,
+            #A617F8 75%,
+            #C836F2 87%,
+            #EB55EC 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+}
+
+.founder {
+    margin-top: 48px;
+    display: flex;
+    gap: 31px;
+    margin-bottom: 65px;
+}
+
+.hr {
+    width: 252px;
+    height: 1px;
+    background: linear-gradient(to right,
+            #1A1A1A 0%,
+            #EB55EC 100%);
+            margin-right: 28px;
+}
+
+.hr2 {
+    width: 252px;
+    height: 1px;
+    background: linear-gradient(to right,
+            #EB55EC 0%,
+            #1A1A1A 100%,
+        );
+        margin-left: 28px;
+}
+
+.teamCard {
+    margin-top: 53px;
+    width: 1048px;
+    height: 724px;
+    border-radius: 16px;
+    background-color: #141A37;
+    padding: 48px;
+}
+
+.teamP {
+    font-size: 18px;
+    font-family: 'Manrope';
+    text-align: center;
+    margin-top: 48px;
+}

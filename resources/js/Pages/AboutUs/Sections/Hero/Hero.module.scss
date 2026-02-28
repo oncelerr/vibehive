@@ -1,0 +1,60 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('/assets/gridbg.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-top: 174px;
+    width: 100%;
+}
+
+.h1 {
+    font-family: 'Outfit';
+    font-size: 64px;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+}
+
+.span {
+    font-family: 'Surgena';
+    background: linear-gradient(to right,
+            #BA2FFC 0%,
+            #B529FD 16%,
+            #B123FD 32%,
+            #A617F8 75%,
+            #C836F2 87%,
+            #EB55EC 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+}
+
+.team {
+    display: flex;
+}
+
+.text {
+    margin: 48.96px 0 48.96px 48px;
+    width: 489px;
+    height: 310px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 29px;
+}
+
+.vr {
+    height: 310px;
+    width: 8px;
+    background-color: #EB55EC;
+}
+
+.p {
+    font-size: 18px;
+}

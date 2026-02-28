@@ -1,0 +1,35 @@
+.curve {
+    svg {
+        path {
+            fill: #060C22; // ← change this to match your background color
+        }
+    }
+
+    svg,
+    .background {
+        position: fixed;
+        height: calc(100vh + 600px);
+        width: 100vw;
+        pointer-events: none;
+        left: 0;
+        top: 0;
+        z-index: 10000;
+    }
+
+    .background {
+        background: #060C22; // ← keep these two in sync
+        transition: opacity 0s linear 0.1s;
+    }
+
+    .route {
+        position: absolute;
+        left: 50%;
+        top: 40%;
+        color: white;
+        font-family: 'Surgena';
+        font-size: 46px;
+        z-index: 10001;
+        transform: translateX(-50%);
+        text-align: center;
+    }
+}

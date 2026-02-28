@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./TextField.module.scss";
-import Button from "../../../../../components/GradientButton/button";
+import Button from "../../../../components/GradientButton/button";
 
 const TextField = () => {
     return (
