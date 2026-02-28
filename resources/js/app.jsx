@@ -6,6 +6,7 @@ import { AnimatePresence } from 'framer-motion';
 import { AuthProvider } from './contexts/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import Home from './Pages/Home/Home';
+import ContactUs from './Pages/Home/ContactUs/ContactUs';
 import Curve from './components/Curve';
 import Navbar from './components/Navbar/Index';
 
@@ -20,6 +21,14 @@ function AnimatedRoutes() {
                         <Home />
                     </Curve>
                 } />
+                <Route 
+                    path="/contact" 
+                    element={
+                        <Curve>
+                            <ContactUs />
+                        </Curve>
+                    } 
+                />
             </Routes>
         </AnimatePresence>
     );
