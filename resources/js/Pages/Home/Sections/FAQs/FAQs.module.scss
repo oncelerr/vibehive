@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 31px;
+    width: 909px;
+    margin-top: 174px;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.h3 {
+    all: unset;
+    font-family: 'Outfit';
+    font-size: 48px;
+    font-weight: 800;
+    color: white;
+}
+
+
+.desc {
+    all: unset;
+    font-family: 'Outfit';
+    font-size: 18px;
+    font-weight: 300;
+    color: white;
+}

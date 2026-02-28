@@ -1,0 +1,52 @@
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 127px;
+}
+
+.header {
+    width: 1229px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    font-family: 'Outfit';
+    font-size: 40px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 48px;
+}
+
+.right {
+    display: flex;
+    gap: 15.73px;
+}
+
+.content {
+    width: 1229px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carouselViewport {
+  width: 93%;
+  overflow: hidden;
+}
+
+.carouselTrack {
+  display: flex;
+  width: 200%;
+  will-change: transform;
+}
+
+.carouselSlide {
+  width: 26%;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}

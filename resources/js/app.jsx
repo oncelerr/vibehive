@@ -9,6 +9,7 @@ import Home from './Pages/Home/Home';
 import ContactUs from './Pages/Home/ContactUs/ContactUs';
 import Curve from './components/Curve';
 import Navbar from './components/Navbar/Index';
+import Footer from './components/Footer/Footer'
 
 function AnimatedRoutes() {
     const location = useLocation();
@@ -40,6 +41,7 @@ function App() {
             <AuthProvider>
                 <Navbar />
                 <AnimatedRoutes />
+                <Footer />
             </AuthProvider>
         </BrowserRouter>
     );

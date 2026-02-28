@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import styles from './OurWorks.module.scss';
 import Badge from '../../../../components/Badge/badge';
 import GradientButton from '../../../../components/GradientButton/button';
+import ArrowButton from '../../../../components/ArrowButton/arrowbtn';
 
 const worksData = [
   {
@@ -58,15 +59,14 @@ const OurWorks = () => {
   return (
     <>
       <div className={styles.ourWorksContainer}>
+        <div className={styles.glowBar} />
         <Badge text="Our Works" />
         <h3 className={styles.ourWorksTitle}>Systems We Have <span className={styles.ourWorksTitleSpan}>Built</span></h3>
         <p className={styles.ourWorksDescription}>Real businesses. Real challenges. Real results.</p>
 
         <div className={styles.ourWorksCarousel}>
           <div className={styles.ourWorksCarouselMain}>
-            <button className={styles.ourWorksCarouselButtons} onClick={handlePrev}>
-              <img src="/Assets/leftarrow.png" alt="Left Arrow" />
-            </button>
+            <ArrowButton position={"left"} func={handlePrev}/>
 
             {/* 👇 Wrap content with overflow hidden to clip the slide */}
             <div style={{ overflow: 'hidden', width: '1045px', height: '714px' }}>
@@ -107,9 +107,7 @@ const OurWorks = () => {
               </AnimatePresence>
             </div>
 
-            <button className={styles.ourWorksCarouselButtons} onClick={handleNext}>
-              <img src="/Assets/rightarrow.png" alt="Right Arrow" />
-            </button>
+            <ArrowButton position={"right"} func={handleNext}/>
           </div>
 
           <div className={styles.ourWorksCarouselBreadcrumbs}>
