@@ -1,0 +1,95 @@
+.FindOutWrp {
+    width: 100%;
+    padding-top: 238px;
+    background-image: url('/assets/FindGrid.png');
+    background-size: cover;
+    background-position: 70% center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-position: 0% 0%;
+
+    @media (max-width: 1440px) {
+        background-size: 130%;
+        background-position: 50% 12%;
+    }
+}
+
+.group {
+  width: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.content {
+  width: 644px;
+  height: 209px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  text-align: center;
+}
+
+.badge {
+  padding: 8px 20px;
+  border-radius: 30px;
+  border: 1px solid #b123fd;
+  background-color: #141a37;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #ffffff;
+}
+
+.titleH1 {
+  margin: 0;
+  font-family: "Outfit";
+  font-size: 62px;
+  font-weight: 600;
+  line-height: 1.05;
+  color: #ffffff;
+}
+
+.titleH1Span {
+  background: linear-gradient(
+    to right,
+    #ba2ffc 0%,
+    #b529fd 16%,
+    #b123fd 32%,
+    #a617f8 75%,
+    #c836f2 87%,
+    #eb55ec 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.ContactUsP {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 620px;
+}
+
+.airplane {
+  width: 80px;
+  height: auto;
+  margin-top: -20px;
+}
+
+.formOverlap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 100px; 
+  z-index: 10;
+  position: relative; 
+}
