@@ -38,8 +38,71 @@ function Navbar() {
   };
   return (
     <>
+      <svg width="0" height="0" style={{ position: 'absolute', overflow: 'hidden' }}>
+        <defs>
+          <filter id="liquid-glass" x="-20%" y="-20%" width="140%" height="140%" colorInterpolationFilters="sRGB">
+
+            {/* Displacement - distorts what's behind */}
+            <feTurbulence
+              type="fractalNoise"
+              baseFrequency="0.65"
+              numOctaves="3"
+              stitchTiles="stitch"
+              result="noise"
+            />
+            <feDisplacementMap
+              in="SourceGraphic"
+              in2="noise"
+              scale="8"
+              xChannelSelector="R"
+              yChannelSelector="G"
+              result="displaced"
+            />
+
+            {/* Chromatic Aberration - split RGB channels */}
+            <feColorMatrix
+              type="matrix"
+              values="1 0 0 0 0
+                      0 0 0 0 0
+                      0 0 0 0 0
+                      0 0 0 1 0"
+              in="displaced"
+              result="red"
+            />
+            <feOffset dx="-2" dy="0" in="red" result="red-shifted" />
+
+            <feColorMatrix
+              type="matrix"
+              values="0 0 0 0 0
+                      0 1 0 0 0
+                      0 0 0 0 0
+                      0 0 0 1 0"
+              in="displaced"
+              result="green"
+            />
+
+            <feColorMatrix
+              type="matrix"
+              values="0 0 0 0 0
+                      0 0 0 0 0
+                      0 0 1 0 0
+                      0 0 0 1 0"
+              in="displaced"
+              result="blue"
+            />
+            <feOffset dx="2" dy="0" in="blue" result="blue-shifted" />
+
+            {/* Merge channels back */}
+            <feBlend in="red-shifted" in2="green" mode="screen" result="rg" />
+            <feBlend in="rg" in2="blue-shifted" mode="screen" result="final" />
+
+          </filter>
+        </defs>
+      </svg>
+
       <ScrollToTop />
       <div className={styles['nav-wrapper']}>
+        <div className={styles['nav-backdrop']} />
         <NavLogo className={styles['nav-logo']} />
 
         {/* Desktop Navigation */}

@@ -19,6 +19,19 @@
 
   // Remove old border, use pseudo-element instead
   border: none;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50px;
+    box-shadow: 
+      inset 2px 2px 4px rgba(255, 255, 255, 0.15),  // top-left highlight
+      inset -2px -2px 4px rgba(0, 0, 0, 0.2);        // bottom-right shadow
+    pointer-events: none;
+    z-index: 2;
+  }
 
   &::before {
     content: '';
@@ -39,6 +52,16 @@
     pointer-events: none;
     opacity: 0.2;
   }
+}
+
+.nav-backdrop {
+  position: absolute;
+  inset: 0;
+  border-radius: 50px;
+  z-index: -1;
+  backdrop-filter: blur(5px) url(#liquid-glass);
+  -webkit-backdrop-filter: blur(5px) url(#liquid-glass);
+  pointer-events: none;
 }
 
 /* Add padding to the body to prevent content from being hidden behind the fixed navbar */
