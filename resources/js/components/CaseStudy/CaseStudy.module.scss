@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  gap: 64px;
+  width: 1240px;
+}
+
+.img {
+  width: 572px;
+  height: 385px;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  justify-content: center;
+}
+
+.tags{
+  display: flex;
+  gap: 8px;
+}
+
+.title {
+  font-family: "Outfit";
+  font-size: 24px;
+  font-weight: 500;
+  color: white;
+}
+
+.desc {
+  font-size: 16px;
+}

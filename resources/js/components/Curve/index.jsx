@@ -3,12 +3,13 @@ import { useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { text, curve, translate } from './anim';
 import './style.scss';
+import { routeStore } from '../../contexts/routeStore'; // adjust path
 
 const routes = {
   '/': 'Home',
   '/about': 'About',
   '/contact': 'Contact',
-  '/services': 'Services',
+  '/our-works': 'Our Works',
 };
 
 const anim = (variants) => {
@@ -46,7 +47,7 @@ export default function Curve({ children, backgroundColor }) {
         className="background"
       />
       <motion.p className="route" {...anim(text)}>
-        {routes[location.pathname]}
+        {routes[routeStore.destination]}  {/* ← reads destination, not current */}
       </motion.p>
       {dimensions.width != null && dimensions.height != null && (
         <SVG height={dimensions.height} width={dimensions.width} />

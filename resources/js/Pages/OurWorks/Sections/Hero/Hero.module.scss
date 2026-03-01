@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.h1 {
+    font-family: 'Outfit';
+    font-size: 64px;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+}
+
+.span {
+    font-family: 'Surgena';
+    background: linear-gradient(to right,
+            #BA2FFC 0%,
+            #B529FD 16%,
+            #B123FD 32%,
+            #A617F8 75%,
+            #C836F2 87%,
+            #EB55EC 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+}
+
+.p {
+  width: 601px;
+  text-align: center;
+}
