@@ -1,0 +1,413 @@
+.page {
+    width: 100%;
+    background-image: url('/Assets/FindGrid.png');
+    background-size: 100%;
+    background-position: 0% 0%;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (max-width: 1440px) {
+        background-size: 130%;
+        background-position: 50% 12%;
+    }
+}
+
+.wrapper {
+    width: 1092px;
+    margin: 0 auto;
+    padding-top: 185px;
+}
+
+.topSection {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 24px;
+}
+
+.backBtn {
+    width: 68px;
+    height: 15px;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 0;
+    border: none;
+    background: transparent;
+
+    font-family: "Manrope", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 15px;
+    color: rgba(255, 255, 255, 0.85);
+
+    cursor: pointer;
+}
+
+.backIcon {
+    width: 14px;
+    height: 14px;
+    object-fit: contain;
+    display: block;
+}
+
+.pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 16px 24px;
+    border-radius: 999px;
+
+    background: #141A37;
+    backdrop-filter: blur(10px);
+
+    font-family: "Manrope", sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: #ffffff;
+
+    white-space: nowrap;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.title {
+    width: 1092px;
+    height: 73px;
+
+    font-size: 64px;
+    font-weight: 600;
+    font-family: "Outfit", sans-serif;
+    color: #ffffff;
+
+    margin-bottom: 90px;
+}
+
+.description {
+    width: 1092px;
+    height: 81px;
+
+    font-family: "Manrope", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 27px;
+    /* 3 lines = 81px */
+
+    color: rgba(255, 255, 255, 0.85);
+
+    margin: 0;
+}
+
+.heroImage {
+    width: 1092px;
+    height: 455px;
+
+    margin-top: 56px;
+
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.heroImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.challengeSection {
+    width: 100%;
+    margin-top: 64px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.challengeTitle {
+    font-family: "Outfit", sans-serif;
+    font-size: 48px;
+    font-weight: 800;
+    color: #ffffff;
+
+    margin: 0;
+}
+
+.challengeTitle span {
+    background: linear-gradient(to right,
+            #ba2ffc 0%,
+            #b529fd 16%,
+            #b123fd 32%,
+            #a617f8 75%,
+            #c836f2 87%,
+            #eb55ec 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.challengeIntro {
+    font-family: "Manrope", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+
+    color: rgba(255, 255, 255, 0.8);
+
+    margin: 0;
+}
+
+.challengeCard {
+    width: 100%;
+    padding: 28px 32px;
+
+    border-radius: 20px;
+    background: rgba(20, 26, 55, 0.55);
+    backdrop-filter: blur(10px);
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.challengeCard h4 {
+    font-family: "Outfit", sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+}
+
+.challengeCard p {
+    font-family: "Manrope", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+
+    color: rgba(255, 255, 255, 0.75);
+
+    margin: 0;
+}
+
+.challengeClosing {
+    font-family: "Manrope", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+
+    color: rgba(255, 255, 255, 0.85);
+
+    margin: 0;
+    margin-top: 24px;
+}
+
+
+.approachSection {
+    width: 1092px;
+    height: 621px;
+
+    margin-top: 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.approachTitle {
+    font-family: "Outfit", sans-serif;
+    font-size: 48px;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+}
+
+.approachTitle span {
+    background: linear-gradient(to right,
+            #ba2ffc 0%,
+            #b529fd 16%,
+            #b123fd 32%,
+            #a617f8 75%,
+            #c836f2 87%,
+            #eb55ec 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.approachIntro {
+    font-family: "Manrope", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+}
+
+.approachGrid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    flex: 1;
+}
+
+.approachCard {
+    padding: 28px 32px;
+    border-radius: 16px;
+    background: #141A37;
+    backdrop-filter: blur(10px);
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.approachCard h4 {
+    font-family: "Outfit", sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+}
+
+.approachCard ul {
+    margin: 0;
+    padding-left: 18px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    font-family: "Manrope", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    color: #BFBFBF;
+}
+
+.approachCard li {
+    margin: 0;
+}
+
+
+.outcomeSection {
+    width: 100%;
+    margin-top: 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.outcomeTitle {
+    font-family: "Outfit", sans-serif;
+    font-size: 48px;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+}
+
+.outcomeTitle span {
+    background: linear-gradient(to right,
+            #ba2ffc 0%,
+            #b529fd 16%,
+            #b123fd 32%,
+            #a617f8 75%,
+            #c836f2 87%,
+            #eb55ec 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.outcomeList {
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    font-family: "Manrope", sans-serif;
+    font-size: 18px;
+    line-height: 152%;
+    color: #FFFFFF;
+}
+
+.outcomeList li {
+    margin: 0;
+}
+
+.testimonialSection {
+  width: 100%;
+  margin-top: 80px;
+
+  display: flex;
+  gap: 80px;
+  align-items: flex-start;
+}
+
+.testimonialLeft {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.testimonialAvatar {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.clientName {
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-align: center;
+  color: #ffffff;
+}
+
+.testimonialRight {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.quoteIcon {
+  width: 77px;
+  height: 57.75px;
+}
+
+.testimonialContent {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.verticalLine {
+  width: 4px;
+  height: 100%;
+}
+
+.testimonialText {
+  font-family: "Manrope", sans-serif;
+  font-size: 18px;
+  line-height: 30px;
+  color: #FFFFFF;
+  margin-bottom: 250px;
+}
