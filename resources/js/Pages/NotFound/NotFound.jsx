@@ -51,7 +51,7 @@ const NotFound = () => {
       alignItems: 'center',
       justifyContent: 'center',
       backgroundColor: '#080816',
-      backgroundImage: `url('/assets/gridbg.png')`,
+      backgroundImage: `url('/Assets/gridbg.png')`,
       backgroundSize: 'contain',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',

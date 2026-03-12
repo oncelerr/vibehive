@@ -35,7 +35,7 @@ const FindOut = () => {
         </div>
         <img
           ref={airplaneRef}
-          src="/assets/airplane.png"
+          src="/Assets/airplane.png"
           alt="airplane"
           className={styles.airplane}
           style={{ opacity: 0 }}
