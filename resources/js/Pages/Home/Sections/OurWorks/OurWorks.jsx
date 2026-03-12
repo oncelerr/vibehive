@@ -1,9 +1,10 @@
-import React,{ useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './OurWorks.module.scss';
 import Badge from '../../../../components/Badge/badge';
 import GradientButton from '../../../../components/GradientButton/button';
 import ArrowButton from '../../../../components/ArrowButton/arrowbtn';
+import { runOurWorksAnimations } from './ourWorksAnimations';
 
 const worksData = [
   {
@@ -31,7 +32,18 @@ const worksData = [
 
 const OurWorks = () => {
   const [current, setCurrent] = useState(0);
-  const [direction, setDirection] = useState(1); // 👈 1 = next, -1 = prev
+  const [direction, setDirection] = useState(1);
+
+  const badgeRef = useRef(null);
+  const titleRef = useRef(null);
+  const descRef = useRef(null);
+  const carouselRef = useRef(null);
+  const btnRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = runOurWorksAnimations({ badgeRef, titleRef, descRef, carouselRef, btnRef });
+    return () => ctx.revert();
+  }, []);
 
   const handlePrev = () => {
     setDirection(-1);
@@ -57,78 +69,84 @@ const OurWorks = () => {
   };
 
   return (
-    <>
-      <div className={styles.ourWorksContainer}>
-        <div className={styles.glowBar} />
+    <div className={styles.ourWorksContainer}>
+      <div className={styles.glowBar} />
+
+      <div ref={badgeRef} style={{ opacity: 0 }}>
         <Badge text="Our Works" />
-        <h3 className={styles.ourWorksTitle}>Systems We Have <span className={styles.ourWorksTitleSpan}>Built</span></h3>
-        <p className={styles.ourWorksDescription}>Real businesses. Real challenges. Real results.</p>
+      </div>
+      <h3 ref={titleRef} className={styles.ourWorksTitle} style={{ opacity: 0 }}>
+        Systems We Have <span className={styles.ourWorksTitleSpan}>Built</span>
+      </h3>
+      <p ref={descRef} className={styles.ourWorksDescription} style={{ opacity: 0 }}>
+        Real businesses. Real challenges. Real results.
+      </p>
 
-        <div className={styles.ourWorksCarousel}>
-          <div className={styles.ourWorksCarouselMain}>
-            <ArrowButton position={"left"} func={handlePrev}/>
+      <div className={styles.ourWorksCarousel} ref={carouselRef} style={{ opacity: 0 }}>
+        <div className={styles.ourWorksCarouselMain}>
+          <ArrowButton position="left" func={handlePrev} />
 
-            {/* 👇 Wrap content with overflow hidden to clip the slide */}
-            <div style={{ overflow: 'hidden', width: '1045px', height: '714px' }}>
-              <AnimatePresence mode="wait" custom={direction}>
-                <motion.div
-                  key={current}
-                  custom={direction}
-                  variants={variants}
-                  initial="enter"
-                  animate="center"
-                  exit="exit"
-                  transition={{ duration: 0.4, ease: [0.76, 0, 0.24, 1] }}
-                  className={styles.ourWorksCarouselContent}
-                >
-                  <div className={styles.ourWorksCarouselContentTop}>
-                    <img src={activeWork.image} alt={activeWork.title} />
+          <div style={{ overflow: 'hidden', width: '1045px', height: '714px' }}>
+            <AnimatePresence mode="wait" custom={direction}>
+              <motion.div
+                key={current}
+                custom={direction}
+                variants={variants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ duration: 0.4, ease: [0.76, 0, 0.24, 1] }}
+                className={styles.ourWorksCarouselContent}
+              >
+                <div className={styles.ourWorksCarouselContentTop}>
+                  <img src={activeWork.image} alt={activeWork.title} />
+                </div>
+                <div className={styles.ourWorksCarouselContentBottom}>
+                  <div className={styles.ourWorksCarouselContentBottomTags}>
+                    {activeWork.tags.map((tag, index) => (
+                      <Badge
+                        key={index}
+                        text={tag}
+                        style={{
+                          marginBottom: '0',
+                          backgroundColor: 'transparent',
+                          color: '#B123FD',
+                          height: '34px',
+                          textTransform: 'none',
+                        }}
+                      />
+                    ))}
                   </div>
-                  <div className={styles.ourWorksCarouselContentBottom}>
-                    <div className={styles.ourWorksCarouselContentBottomTags}>
-                      {activeWork.tags.map((tag, index) => (
-                        <Badge
-                          key={index}
-                          text={tag}
-                          style={{
-                            marginBottom: '0',
-                            backgroundColor: 'transparent',
-                            color: '#B123FD',
-                            height: '34px',
-                            textTransform: 'none'
-                          }}
-                        />
-                      ))}
-                    </div>
-                    <div className={styles.ourWorksCarouselContentBottomTitle}>{activeWork.title}</div>
-                    <div className={styles.ourWorksCarouselContentBottomDescription}>{activeWork.description}</div>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-
-            <ArrowButton position={"right"} func={handleNext}/>
+                  <div className={styles.ourWorksCarouselContentBottomTitle}>{activeWork.title}</div>
+                  <div className={styles.ourWorksCarouselContentBottomDescription}>{activeWork.description}</div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
 
-          <div className={styles.ourWorksCarouselBreadcrumbs}>
-            {worksData.map((_, index) => (
-              <div
-                key={index}
-                onClick={() => handleDot(index)}
-                className={
-                  index === current
-                    ? styles.ourWorksCarouselBreadcrumbsActive
-                    : styles.ourWorksCarouselBreadcrumbsInactive
-                }
-                style={{ cursor: 'pointer' }}
-              />
-            ))}
-          </div>
+          <ArrowButton position="right" func={handleNext} />
         </div>
 
-        <GradientButton text="View All Projects" color="gradient" hasArrow="true"/>
+        <div className={styles.ourWorksCarouselBreadcrumbs}>
+          {worksData.map((_, index) => (
+            <div
+              key={index}
+              onClick={() => handleDot(index)}
+              className={
+                index === current
+                  ? styles.ourWorksCarouselBreadcrumbsActive
+                  : styles.ourWorksCarouselBreadcrumbsInactive
+              }
+              style={{ cursor: 'pointer' }}
+            />
+          ))}
+        </div>
       </div>
-    </>
+
+      <div ref={btnRef} style={{ opacity: 0 }}>
+        <GradientButton text="View All Projects" color="gradient" hasArrow="true" />
+      </div>
+    </div>
   );
 };
 

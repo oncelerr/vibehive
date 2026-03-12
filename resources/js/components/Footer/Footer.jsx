@@ -1,24 +1,65 @@
 import React from 'react';
 import styles from './Footer.module.scss';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { routeStore } from '../../contexts/routeStore';
 
 function ScrollToTop() {
 	const { pathname } = useLocation();
 
 	useEffect(() => {
-		window.scrollTo({
-			top: 0,
-			behavior: 'smooth'
-		});
+		window.scrollTo({ top: 0, behavior: 'smooth' });
 	}, [pathname]);
 
 	return null;
 }
 
+const SocialIcon = ({ src, alt }) => {
+	const [hovered, setHovered] = useState(false);
+
+	return (
+		<img
+			src={src}
+			alt={alt}
+			onMouseEnter={() => setHovered(true)}
+			onMouseLeave={() => setHovered(false)}
+			style={{
+				cursor: 'pointer',
+				transition: 'transform 0.25s ease, opacity 0.25s ease',
+				transform: hovered ? 'translateY(-3px) scale(1.15)' : 'translateY(0) scale(1)',
+				opacity: hovered ? 1 : 0.7,
+			}}
+		/>
+	);
+};
+
+const NavLink = ({ label, onClick }) => {
+	const [hovered, setHovered] = useState(false);
+
+	return (
+		<span
+			onClick={onClick}
+			onMouseEnter={() => setHovered(true)}
+			onMouseLeave={() => setHovered(false)}
+			style={{
+				color: hovered ? '#C836F2' : 'white',
+				fontFamily: 'Outfit',
+				fontSize: '16px',
+				fontWeight: '300',
+				cursor: 'pointer',
+				transition: 'color 0.25s ease',
+			}}
+		>
+			{label}
+		</span>
+	);
+};
+
 const Footer = () => {
 	const navigate = useNavigate();
+
 	const handleNavClick = (path) => {
+		routeStore.destination = path; // ← set destination first
 		navigate(path);
 	};
 
@@ -41,21 +82,21 @@ const Footer = () => {
 							<p>(001) 1231 3435</p>
 						</div>
 						<div className={styles.rightlinks}>
-							<img src="/Assets/fb.png" alt="" />
-							<img src="/Assets/insta.png" alt="" />
-							<img src="/Assets/linkedin.png" alt="" />
-							<img src="/Assets/ball.png" alt="" />
+							<SocialIcon src="/Assets/fb.png" alt="Facebook" />
+							<SocialIcon src="/Assets/insta.png" alt="Instagram" />
+							<SocialIcon src="/Assets/linkedin.png" alt="LinkedIn" />
+							<SocialIcon src="/Assets/ball.png" alt="Dribbble" />
 						</div>
 					</div>
 				</div>
-				<div className={styles.hr}/>
+				<div className={styles.hr} />
 				<div className={styles.bottom}>
 					<div className={styles.links}>
-						<a onClick={() => handleNavClick('/')}>Home</a>
-						<a onClick={() => handleNavClick('/about')}>About</a>
-						<a onClick={() => handleNavClick('/services')}>Services</a>
-						<a onClick={() => handleNavClick('/portfolio')}>Portfolio</a>
-						<a onClick={() => handleNavClick('/contact')}>Contact</a>
+						<NavLink label="Home" onClick={() => handleNavClick('/')} />
+						<NavLink label="About" onClick={() => handleNavClick('/about')} />
+						<NavLink label="Services" onClick={() => handleNavClick('/our-works')} />
+						<NavLink label="Portfolio" onClick={() => handleNavClick('/our-works')} />
+						<NavLink label="Contact" onClick={() => handleNavClick('/contact')} />
 					</div>
 					<div className={styles.copyright}>
 						© 2025 ItsVibeHive - All Right Reserved

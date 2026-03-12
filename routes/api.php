@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\ApplicationController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -62,3 +63,7 @@ Route::get('/user', function (Request $request) {
         'message' => 'Not authenticated'
     ], 401);
 });
+
+Route::post('/applications', [ApplicationController::class, 'store']);
+Route::get('/applications', [ApplicationController::class, 'index']);
+Route::get('/applications/{application}', [ApplicationController::class, 'show']);

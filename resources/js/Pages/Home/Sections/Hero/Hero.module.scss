@@ -10,11 +10,21 @@
     align-items: center;
     justify-content: center;
     background-position: 0% 0%;
+    position: relative;
 
     @media (max-width: 1440px) {
         background-size: 135%;
         background-position: 50% 12%;
     }
+}
+
+.heroShapes {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    pointer-events: none;
 }
 
 .heroH1 {
@@ -43,6 +53,14 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
     color: transparent;
+}
+
+.h1ImgStar {
+    width: 35px;
+    height: 35px;
+    top: -18px;
+    left: -8px;
+    position: relative;
 }
 
 .heroBtnWrp {

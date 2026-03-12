@@ -113,7 +113,7 @@ function Navbar() {
           <a onClick={() => handleNavClick('/contact')}>Contact Us</a>
         </div>
 
-        <button className={styles['connect-btn']}>Let's Connect</button>
+        <button className={styles['connect-btn']} onClick={() => handleNavClick('/contact')}>Let's Connect</button>
 
         <button
           className={styles['hamburger-btn']}

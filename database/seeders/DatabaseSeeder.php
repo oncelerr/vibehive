@@ -22,5 +22,6 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@vibehive.ph',
             'password' => 'Sayawatha012!',
         ]);
+        $this->call(ApplicationSeeder::class);
     }
 }
