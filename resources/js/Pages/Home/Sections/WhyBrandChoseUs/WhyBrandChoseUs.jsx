@@ -23,8 +23,8 @@ const WhyBrandChoseUs = () => {
           <TextCard text="Quality Gates at Every Step" description="Nothing goes live without internal review. No surprises, no half-finished work, no excuses." />
         </div>
         <div className={styles.card} ref={el => rowRefs.current[1] = el}>
-          <TextCard text="Systems, Not Services" description="We do not sell you a website and walk away. We build complete digital foundations where every piece works together." />
-          <TextCard text="Quality Gates at Every Step" description="Nothing goes live without internal review. No surprises, no half-finished work, no excuses." />
+          <TextCard text="Clear Scope, Clear Timelines" description="You know exactly what you are getting, when you are getting it, and what it costs. Period." />
+          <TextCard text="Global Standards, Fair Pricing" description="Based in the Philippines, serving clients globally. You get world-class execution without the world-class agency markup." />
         </div>
       </div>
     </div>

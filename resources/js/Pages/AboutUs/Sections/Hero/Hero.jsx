@@ -24,7 +24,7 @@ const Hero = () => {
         A Small Team <br />Doing <span className={styles.span}>Big Work</span>
       </div>
       <div ref={teamRef} className={styles.team} style={{ opacity: 0 }}>
-        <img src="/Assets/Group.png" alt="" />
+        <img src="/Assets/group.png" alt="" />
         <div className={styles.text}>
           <div className={styles.vr} />
           <p className={styles.p}>

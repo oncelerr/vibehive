@@ -2,10 +2,8 @@
   display: flex;
   flex-direction: column;
   gap: 66px;
-  top: -250px;
   position: relative;
-
-
+  margin-top: -250px; // use margin instead of top
 }
 
 .gradient {
@@ -18,8 +16,29 @@
 
 @media (max-width: 1440px) {
   .container {
-    top: -425px;
-    margin-bottom: -325px;
+    margin-bottom: 100px;
+  }
+
+  .gradient {
+    bottom: -400px;
+  }
+}
+
+@media (max-height: 900px) {
+  .container {
+    margin-bottom: 100px;
+    margin-top: -150px;
+  }
+
+  .gradient {
+    bottom: -400px;
+  }
+}
+
+@media (min-height: 800px) {
+  .container {
+    margin-bottom: 100px;
+    margin-top: -200px;
   }
 
   .gradient {

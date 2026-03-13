@@ -29,24 +29,13 @@
 
 .content {
     width: 1229px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.carouselViewport {
-  width: 93%;
-  overflow: hidden;
+.slider {
+    width: 100%;
 }
 
-.carouselTrack {
-  display: flex;
-  width: 200%;
-  will-change: transform;
-}
-
-.carouselSlide {
-  width: 26%;
-  flex-shrink: 0;
-  box-sizing: border-box;
+.slide {
+    padding: 0 12px;
+    box-sizing: border-box;
 }

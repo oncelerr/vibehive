@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef } from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import styles from './Testimonials.module.scss';
 import Badge from '../../../../components/Badge/badge';
 import ArrowButton from '../../../../components/ArrowButton/arrowbtn';
 import Feedback from '../../../../components/Feedback/feedback';
+import { runTestimonialsAnimations } from './testimonialsAnimations';
 
 const feedbackData = [
   {
@@ -28,69 +32,52 @@ const feedbackData = [
 ];
 
 const Testimonials = () => {
-  const [startIndex, setStartIndex] = useState(0);
-  const [sliding, setSliding] = useState(false);
-  const [offset, setOffset] = useState(0);
+  const sliderRef = useRef(null);
+  const headerRef = useRef(null);
+  const carouselRef = useRef(null);
 
-  const slide = (dir) => {
-    if (sliding) return;
-    setOffset(dir === 'right' ? -50 : 50);
-    setSliding(true);
+  useEffect(() => {
+    const ctx = runTestimonialsAnimations({ headerRef, carouselRef });
+    return () => ctx.revert();
+  }, []);
 
-    setTimeout(() => {
-      setStartIndex((prev) =>
-        dir === 'right'
-          ? (prev + 1) % feedbackData.length
-          : (prev - 1 + feedbackData.length) % feedbackData.length
-      );
-      setOffset(0);
-      setSliding(false);
-    }, 420);
+  const settings = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    arrows: false,   // using our own ArrowButton
+    dots: false,
+    cssEase: 'cubic-bezier(0.4, 0, 0.2, 1)',
   };
 
-  const indices = [
-    (startIndex - 1 + feedbackData.length) % feedbackData.length,
-    startIndex,
-    (startIndex + 1) % feedbackData.length,
-    (startIndex + 2) % feedbackData.length,
-  ];
-
   return (
-    <>
-      <div className={styles.container}>
-        <div className={styles.header}>
-          <div className={styles.left}>
-            <Badge text={"TESTIMONIALS"} style={{ marginBottom: '8px' }} />
-            <div className={styles.title}>Feedback From Our Clients</div>
-          </div>
-          <div className={styles.right}>
-            <ArrowButton position={'left'} func={() => slide('left')} />
-            <ArrowButton position={'right'} func={() => slide('right')} />
-          </div>
+    <div className={styles.container}>
+      <div className={styles.header} ref={headerRef}>
+        <div className={styles.left} style={{ opacity: 0 }}>
+          <Badge text="TESTIMONIALS" style={{ marginBottom: '8px' }} />
+          <div className={styles.title}>Feedback From Our Clients</div>
         </div>
-        <div className={styles.content}>
-          <div className={styles.carouselViewport}>
-            <div
-              className={styles.carouselTrack}
-              style={{
-                transform: `translateX(calc(-25% + ${offset}%))`,
-                transition: sliding ? 'transform 420ms cubic-bezier(0.4, 0, 0.2, 1)' : 'none',
-              }}
-            >
-              {indices.map((dataIndex, i) => (
-                <div key={i} className={styles.carouselSlide}>
-                  <Feedback
-                    comment={feedbackData[dataIndex].comment}
-                    name={feedbackData[dataIndex].name}
-                    company={feedbackData[dataIndex].company}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
+        <div className={styles.right} style={{ opacity: 0 }}>
+          <ArrowButton position="left" func={() => sliderRef.current.slickPrev()} />
+          <ArrowButton position="right" func={() => sliderRef.current.slickNext()} />
         </div>
       </div>
-    </>
+
+      <div className={styles.content} ref={carouselRef} style={{ opacity: 0 }}>
+        <Slider ref={sliderRef} {...settings} className={styles.slider}>
+          {feedbackData.map((item, i) => (
+            <div key={i} className={styles.slide}>
+              <Feedback
+                comment={item.comment}
+                name={item.name}
+                company={item.company}
+              />
+            </div>
+          ))}
+        </Slider>
+      </div>
+    </div>
   );
 };
 
