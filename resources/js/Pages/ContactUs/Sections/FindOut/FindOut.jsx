@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import styles from './FindOut.module.scss';
 import TextField from '../TextField/TextField';
+
+import Badge from '../../../../components/Badge/badge';
 import { runFindOutAnimations } from './findOutAnimations';
 
 const FindOut = () => {
@@ -19,12 +21,14 @@ const FindOut = () => {
     <section className={styles.FindOutWrp}>
       <div className={styles.group}>
         <div className={styles.content}>
-          <div ref={badgeRef} className={styles.badge} style={{ opacity: 0 }}>
-            CONTACT US
+          <div ref={badgeRef} className={styles.badgeWrap} style={{ opacity: 0 }}>
+            <Badge text="CONTACT US" />
           </div>
+
           <h1 ref={h1Ref} className={styles.titleH1} style={{ opacity: 0 }}>
             Let's Find Out <span className={styles.titleH1Span}>Together</span>
           </h1>
+
           <p ref={pRef} className={styles.ContactUsP} style={{ opacity: 0 }}>
             Vibe Hive doesn't say yes to every project. Not out of exclusivity, but out of honesty.
             <br />
@@ -33,6 +37,7 @@ const FindOut = () => {
             that gets said upfront. No time wasted, no hard feelings.
           </p>
         </div>
+
         <img
           ref={airplaneRef}
           src="/Assets/airplane.png"
