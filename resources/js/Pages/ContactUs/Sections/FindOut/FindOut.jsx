@@ -5,7 +5,7 @@ import TextField from '../TextField/TextField';
 import Badge from '../../../../components/Badge/badge';
 import { runFindOutAnimations } from './findOutAnimations';
 
-const FindOut = () => {
+const FindOut = ({ onModal }) => {
   const badgeRef = useRef(null);
   const h1Ref = useRef(null);
   const pRef = useRef(null);
@@ -48,7 +48,7 @@ const FindOut = () => {
       </div>
 
       <div ref={formRef} className={styles.formOverlap} style={{ opacity: 0 }}>
-        <TextField />
+        <TextField onModal={onModal} />
       </div>
     </section>
   );

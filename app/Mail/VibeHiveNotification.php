@@ -25,6 +25,7 @@ class VibeHiveNotification extends Mailable
             'standard_lead' => '✅ [STANDARD LEAD] New Application - ' . $this->application->name,
             'needs_review'  => '🔍 [NEEDS REVIEW] New Application - ' . $this->application->name,
             'not_a_fit'     => '❌ [NOT A FIT] New Application - ' . $this->application->name,
+            'waitlisted'    => '⏳ [WAITLISTED] New Application - ' . $this->application->name,
             default         => 'New Application - ' . $this->application->name,
         };
 

@@ -1,7 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./TextField.module.scss";
 
-const TextField = () => {
+const SubmittingText = () => {
+	const [dots, setDots] = useState("");
+
+	useEffect(() => {
+		const interval = setInterval(() => {
+			setDots((prev) => (prev.length >= 3 ? "" : prev + "."));
+		}, 400);
+		return () => clearInterval(interval);
+	}, []);
+
+	return <span>Submitting{dots}</span>;
+};
+
+const TextField = ({ onModal }) => {
 	const [step, setStep] = useState(1);
 	const [form, setForm] = useState({
 		name: "",
@@ -19,6 +32,7 @@ const TextField = () => {
 	const [focusedField, setFocusedField] = useState(null);
 	const [btnHovered, setBtnHovered] = useState(false);
 	const [dotHovered, setDotHovered] = useState(null);
+	const [isSubmitting, setIsSubmitting] = useState(false);
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
@@ -51,17 +65,23 @@ const TextField = () => {
 		return Object.keys(newErrors).length === 0;
 	};
 
-	const handleNext = () => { if (validateStep()) setStep((prev) => prev + 1); };
+	const handleNext = () => {
+		if (validateStep()) setStep((prev) => prev + 1);
+	};
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (!validateStep()) return;
+		if (isSubmitting) return;
+
+		setIsSubmitting(true);
 
 		try {
-			const response = await fetch('/api/applications', {
-				method: 'POST',
+			const response = await fetch("/api/applications", {
+				method: "POST",
 				headers: {
-					'Content-Type': 'application/json',
-					'Accept': 'application/json', // 👈 this forces Laravel to return JSON errors
+					"Content-Type": "application/json",
+					Accept: "application/json",
 				},
 				body: JSON.stringify({
 					name: form.name,
@@ -80,21 +100,44 @@ const TextField = () => {
 			const data = await response.json();
 
 			if (response.ok) {
-				console.log('Submitted:', data);
-				// redirect or show success
+				onModal({
+					type: "success",
+					title: "Application Received!",
+					message: "Thanks for applying! We'll review your submission and get back to you within 48 hours if there's a fit.",
+				});
+			} else if (response.status === 422) {
+				const firstError = data.errors
+					? Object.values(data.errors)[0]?.[0]
+					: data.message;
+				onModal({
+					type: "warning",
+					title: "Check Your Details",
+					message: firstError || "Some fields need to be corrected. Please review and try again.",
+				});
 			} else {
-				console.error('Validation errors:', data.errors);
+				onModal({
+					type: "error",
+					title: "Something went wrong",
+					message: data.message || "We could not submit your application. Please try again in a moment.",
+				});
 			}
 		} catch (err) {
-			console.error('Submission error:', err);
+			console.error("Submission error:", err);
+			onModal({
+				type: "error",
+				title: "Connection Error",
+				message: "Unable to reach our servers. Please check your connection and try again.",
+			});
+		} finally {
+			setIsSubmitting(false);
 		}
 	};
 
 	const inputStyle = (name) => ({
-		transition: 'border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease',
-		borderColor: errors[name] ? '#ff4d4d' : focusedField === name ? '#B123FD' : 'rgba(255,255,255,0.1)',
-		boxShadow: focusedField === name ? '0 0 0 3px rgba(177, 35, 253, 0.15)' : 'none',
-		backgroundColor: focusedField === name ? '#1A2147' : '',
+		transition: "border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease",
+		borderColor: errors[name] ? "#ff4d4d" : focusedField === name ? "#B123FD" : "rgba(255,255,255,0.1)",
+		boxShadow: focusedField === name ? "0 0 0 3px rgba(177, 35, 253, 0.15)" : "none",
+		backgroundColor: focusedField === name ? "#1A2147" : "",
 	});
 
 	const fieldProps = (name) => ({
@@ -107,9 +150,9 @@ const TextField = () => {
 		<section className={styles.wrapper}>
 			<div className={styles.card}>
 				<div className={styles.inner}>
+
 					<p className={styles.topText}>
-						Fill out this quick application. If there is a fit, we will send you a link
-						to book a free 30-minute discovery call with our team.
+						Fill out this quick application. If there is a fit, we will send you a link to book a free 30-minute discovery call with our team.
 					</p>
 					<p className={styles.bottomNote}>
 						We review every application within <strong>48 hours.</strong>
@@ -117,31 +160,32 @@ const TextField = () => {
 
 					<form onSubmit={handleSubmit}>
 						<div className={styles.grid}>
+
 							{step === 1 && (
 								<>
 									<div className={styles.field}>
 										<label className={styles.label}>Your Name</label>
-										<input type="text" name="name" className={styles.input} placeholder="Enter your name" value={form.name} onChange={handleChange} {...fieldProps('name')} />
+										<input type="text" name="name" className={styles.input} placeholder="Enter your name" value={form.name} onChange={handleChange} {...fieldProps("name")} />
 										{errors.name && <span className={styles.error}>{errors.name}</span>}
 									</div>
 									<div className={styles.field}>
 										<label className={styles.label}>Email Address</label>
-										<input type="email" name="email" className={styles.input} placeholder="Enter your email address" value={form.email} onChange={handleChange} {...fieldProps('email')} />
+										<input type="email" name="email" className={styles.input} placeholder="Enter your email address" value={form.email} onChange={handleChange} {...fieldProps("email")} />
 										{errors.email && <span className={styles.error}>{errors.email}</span>}
 									</div>
 									<div className={styles.field}>
 										<label className={styles.label}>Company or Brand Name</label>
-										<input type="text" name="company" className={styles.input} placeholder="Enter your brand name" value={form.company} onChange={handleChange} {...fieldProps('company')} />
+										<input type="text" name="company" className={styles.input} placeholder="Enter your brand name" value={form.company} onChange={handleChange} {...fieldProps("company")} />
 										{errors.company && <span className={styles.error}>{errors.company}</span>}
 									</div>
 									<div className={styles.field}>
 										<label className={styles.label}>Your Website URL</label>
-										<input type="text" name="website" className={styles.input} placeholder="website.com" value={form.website} onChange={handleChange} {...fieldProps('website')} />
+										<input type="text" name="website" className={styles.input} placeholder="website.com" value={form.website} onChange={handleChange} {...fieldProps("website")} />
 										{errors.website && <span className={styles.error}>{errors.website}</span>}
 									</div>
 									<div className={styles.field}>
 										<label className={styles.label}>Industry</label>
-										<input type="text" name="industry" className={styles.input} placeholder="Enter your industry" value={form.industry} onChange={handleChange} {...fieldProps('industry')} />
+										<input type="text" name="industry" className={styles.input} placeholder="Enter your industry" value={form.industry} onChange={handleChange} {...fieldProps("industry")} />
 										{errors.industry && <span className={styles.error}>{errors.industry}</span>}
 									</div>
 								</>
@@ -151,12 +195,12 @@ const TextField = () => {
 								<>
 									<div className={styles.field}>
 										<label className={styles.label}>What is your biggest challenge right now?</label>
-										<textarea name="challenge" className={styles.textarea} placeholder="Tell us about your current digital situation and what you are hoping to achieve." value={form.challenge} onChange={handleChange} {...fieldProps('challenge')} />
+										<textarea name="challenge" className={styles.textarea} placeholder="Tell us about your current digital situation and what you are hoping to achieve." value={form.challenge} onChange={handleChange} {...fieldProps("challenge")} />
 										{errors.challenge && <span className={styles.error}>{errors.challenge}</span>}
 									</div>
 									<div className={styles.field}>
 										<label className={styles.label}>Estimated Budget Range</label>
-										<select name="budget" className={styles.select} value={form.budget} onChange={handleChange} {...fieldProps('budget')}>
+										<select name="budget" className={styles.select} value={form.budget} onChange={handleChange} {...fieldProps("budget")}>
 											<option value="">Select range</option>
 											<option value="Under $2,700 USD">Under $2,700 USD</option>
 											<option value="$2,700 - $4,500 USD">$2,700 - $4,500 USD</option>
@@ -168,7 +212,7 @@ const TextField = () => {
 									</div>
 									<div className={styles.field}>
 										<label className={styles.label}>How soon do you need this?</label>
-										<select name="timeline" className={styles.select} value={form.timeline} onChange={handleChange} {...fieldProps('timeline')}>
+										<select name="timeline" className={styles.select} value={form.timeline} onChange={handleChange} {...fieldProps("timeline")}>
 											<option value="">Select option</option>
 											<option value="ASAP - we need to move fast">ASAP - we need to move fast</option>
 											<option value="Within 1-2 months">Within 1-2 months</option>
@@ -184,7 +228,7 @@ const TextField = () => {
 								<>
 									<div className={styles.field}>
 										<label className={styles.label}>How did you hear about us?</label>
-										<select name="hearAbout" className={styles.select} value={form.hearAbout} onChange={handleChange} {...fieldProps('hearAbout')}>
+										<select name="hearAbout" className={styles.select} value={form.hearAbout} onChange={handleChange} {...fieldProps("hearAbout")}>
 											<option value="">Select option</option>
 											<option value="Google">Google</option>
 											<option value="Facebook">Facebook</option>
@@ -194,14 +238,15 @@ const TextField = () => {
 										</select>
 										{errors.hearAbout && <span className={styles.error}>{errors.hearAbout}</span>}
 									</div>
-									{form.hearAbout === 'Referral' && (
+									{form.hearAbout === "Referral" && (
 										<div className={styles.field}>
 											<label className={styles.label}>If Referral, stated who:</label>
-											<input type="text" name="referrer" className={styles.input} placeholder="Enter referrer's name" value={form.referrer || ''} onChange={handleChange} {...fieldProps('referrer')} />
+											<input type="text" name="referrer" className={styles.input} placeholder="Enter referrer's name" value={form.referrer || ""} onChange={handleChange} {...fieldProps("referrer")} />
 										</div>
 									)}
 								</>
 							)}
+
 						</div>
 
 						<div className={styles.progressWrap}>
@@ -212,10 +257,10 @@ const TextField = () => {
 									onMouseLeave={() => setDotHovered(null)}
 									className={step === s ? styles.activeDot : styles.dot}
 									style={{
-										transition: 'transform 0.2s ease, box-shadow 0.2s ease',
-										transform: dotHovered === s && step !== s ? 'scale(1.3)' : 'scale(1)',
-										boxShadow: step === s ? '0 0 8px rgba(177, 35, 253, 0.6)' : 'none',
-										cursor: 'default',
+										transition: "transform 0.2s ease, box-shadow 0.2s ease",
+										transform: dotHovered === s && step !== s ? "scale(1.3)" : "scale(1)",
+										boxShadow: step === s ? "0 0 8px rgba(177, 35, 253, 0.6)" : "none",
+										cursor: "default",
 									}}
 								/>
 							))}
@@ -230,32 +275,59 @@ const TextField = () => {
 									onMouseEnter={() => setBtnHovered(true)}
 									onMouseLeave={() => setBtnHovered(false)}
 									style={{
-										transition: 'opacity 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease',
 										opacity: btnHovered ? 0.88 : 1,
-										transform: btnHovered ? 'translateY(-2px)' : 'translateY(0)',
-										boxShadow: btnHovered ? '0 6px 24px rgba(177, 35, 253, 0.4)' : 'none',
+										transform: btnHovered ? "translateY(-2px)" : "translateY(0)",
+										boxShadow: btnHovered ? "0 6px 24px rgba(177, 35, 253, 0.4)" : "none",
 									}}
 								>
-									Next <span className={styles.arrow} style={{ transition: 'transform 0.25s ease', display: 'inline-block', transform: btnHovered ? 'translateX(4px)' : 'translateX(0)' }}>→</span>
+									Next{" "}
+									<span
+										className={styles.arrow}
+										style={{
+											display: "inline-block",
+											transform: btnHovered ? "translateX(4px)" : "translateX(0)",
+											transition: "transform 0.25s ease",
+										}}
+									>
+										→
+									</span>
 								</button>
 							) : (
 								<button
 									type="submit"
-									className={styles.submitBtn}
-									onMouseEnter={() => setBtnHovered(true)}
+									disabled={isSubmitting}
+									className={`${styles.submitBtn} ${isSubmitting ? styles.submitting : ""}`}
+									onMouseEnter={() => { if (!isSubmitting) setBtnHovered(true); }}
 									onMouseLeave={() => setBtnHovered(false)}
 									style={{
-										transition: 'opacity 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease',
-										opacity: btnHovered ? 0.88 : 1,
-										transform: btnHovered ? 'translateY(-2px)' : 'translateY(0)',
-										boxShadow: btnHovered ? '0 6px 24px rgba(177, 35, 253, 0.4)' : 'none',
+										opacity: isSubmitting ? 0.72 : btnHovered ? 0.88 : 1,
+										transform: !isSubmitting && btnHovered ? "translateY(-2px)" : "translateY(0)",
+										boxShadow: !isSubmitting && btnHovered ? "0 6px 24px rgba(177, 35, 253, 0.4)" : "none",
+										cursor: isSubmitting ? "not-allowed" : "pointer",
 									}}
 								>
-									Submit Application <span className={styles.arrow} style={{ transition: 'transform 0.25s ease', display: 'inline-block', transform: btnHovered ? 'translate(3px, -3px)' : 'translate(0,0)' }}>↗</span>
+									{isSubmitting ? (
+										<SubmittingText />
+									) : (
+										<>
+											Submit Application{" "}
+											<span
+												className={styles.arrow}
+												style={{
+													display: "inline-block",
+													transform: btnHovered ? "translate(3px, -3px)" : "translate(0, 0)",
+													transition: "transform 0.25s ease",
+												}}
+											>
+												↗
+											</span>
+										</>
+									)}
 								</button>
 							)}
 						</div>
 					</form>
+
 				</div>
 			</div>
 		</section>

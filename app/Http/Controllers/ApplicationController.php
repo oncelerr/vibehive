@@ -25,7 +25,13 @@ class ApplicationController extends Controller
             'referrer'   => 'nullable|string|max:255',
         ]);
 
-        $leadStatus = $this->classifyLead($validated);
+        // Detect waitlist submissions
+        if ($request->input('source') === 'waitlist') {
+            $leadStatus = 'waitlisted';
+        } else {
+            $leadStatus = $this->classifyLead($validated);
+        }
+
         $validated['lead_status'] = $leadStatus;
 
         $application = Application::create($validated);

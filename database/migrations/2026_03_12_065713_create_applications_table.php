@@ -34,6 +34,7 @@ return new class extends Migration {
                 'standard_lead',
                 'needs_review',
                 'not_a_fit',
+                'waitlisted',
             ])->default('needs_review');
 
             $table->timestamps();

@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vibe Hive — Premium Web Package Waitlist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --void: #07060f;
+    --deep: #0e0c1e;
+    --surface: #13112a;
+    --card: #1a1735;
+    --border: rgba(138, 110, 255, 0.15);
+    --violet: #8a6eff;
+    --violet-bright: #a78bff;
+    --gold: #f0c040;
+    --muted: rgba(255,255,255,0.38);
+    --text: rgba(255,255,255,0.88);
+    --heading: #ffffff;
+    --radius: 16px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: var(--void);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  /* ── BACKGROUND ── */
+  .bg-layer {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    overflow: hidden;
+  }
+  .bg-layer::before {
+    content: '';
+    position: absolute;
+    top: -30%; left: -20%;
+    width: 80vw; height: 80vw;
+    background: radial-gradient(ellipse at center, rgba(90,55,220,0.22) 0%, transparent 65%);
+    animation: drift1 18s ease-in-out infinite alternate;
+  }
+  .bg-layer::after {
+    content: '';
+    position: absolute;
+    bottom: -20%; right: -15%;
+    width: 70vw; height: 70vw;
+    background: radial-gradient(ellipse at center, rgba(138,110,255,0.14) 0%, transparent 65%);
+    animation: drift2 22s ease-in-out infinite alternate;
+  }
+  .bg-grain {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    opacity: 0.032;
+  }
+  @keyframes drift1 { from { transform: translate(0,0) scale(1); } to { transform: translate(5%,8%) scale(1.1); } }
+  @keyframes drift2 { from { transform: translate(0,0) scale(1); } to { transform: translate(-6%,-5%) scale(1.08); } }
+
+  /* ── WRAPPER ── */
+  .wrapper {
+    position: relative; z-index: 1;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: relative; z-index: 1;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 28px 24px;
+    max-width: 680px; margin: 0 auto;
+  }
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: -0.01em;
+    color: var(--heading);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .logo-dot {
+    width: 8px; height: 8px;
+    background: var(--violet);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--violet);
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+  @keyframes pulse-dot {
+    0%,100% { box-shadow: 0 0 8px var(--violet); transform: scale(1); }
+    50% { box-shadow: 0 0 18px var(--violet-bright); transform: scale(1.2); }
+  }
+  .nav-badge {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(240,192,64,0.1);
+    border: 1px solid rgba(240,192,64,0.25);
+    padding: 5px 12px;
+    border-radius: 100px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 52px 0 40px;
+    opacity: 0;
+    transform: translateY(24px);
+    animation: fadeUp 0.7s ease forwards 0.1s;
+  }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--violet-bright);
+    margin-bottom: 20px;
+  }
+  .eyebrow-line {
+    width: 28px; height: 1px;
+    background: var(--violet-bright);
+  }
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.4rem, 6vw, 3.4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--heading);
+    margin-bottom: 20px;
+  }
+  h1 em {
+    font-style: normal;
+    background: linear-gradient(135deg, var(--violet-bright) 0%, #c4b0ff 50%, var(--gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.55);
+    max-width: 520px;
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+  .hero-sub strong {
+    color: rgba(255,255,255,0.82);
+    font-weight: 500;
+  }
+
+  /* ── STATS ROW ── */
+  .stats-row {
+    display: flex; gap: 28px; flex-wrap: wrap;
+    margin-bottom: 48px;
+    opacity: 0;
+    transform: translateY(16px);
+    animation: fadeUp 0.7s ease forwards 0.3s;
+  }
+  .stat {
+    display: flex; align-items: center; gap: 10px;
+  }
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--heading);
+  }
+  .stat-label {
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.3;
+    max-width: 80px;
+  }
+  .stat-divider {
+    width: 1px; height: 32px;
+    background: var(--border);
+  }
+
+  /* ── FORM CARD ── */
+  .form-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.7s ease forwards 0.45s;
+  }
+  .form-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(138,110,255,0.6), transparent);
+  }
+  .form-card-header {
+    margin-bottom: 32px;
+  }
+  .form-card-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--heading);
+    margin-bottom: 6px;
+  }
+  .form-card-sub {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  /* ── FORM ── */
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .field {
+    display: flex; flex-direction: column; gap: 7px;
+  }
+  .field.full { grid-column: 1 / -1; }
+  label {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+  input, select {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(138,110,255,0.18);
+    border-radius: 10px;
+    padding: 13px 16px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    color: var(--heading);
+    transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+    outline: none;
+    width: 100%;
+    -webkit-appearance: none;
+  }
+  input::placeholder { color: rgba(255,255,255,0.22); }
+  input:focus, select:focus {
+    border-color: rgba(138,110,255,0.55);
+    background: rgba(138,110,255,0.06);
+    box-shadow: 0 0 0 3px rgba(138,110,255,0.1);
+  }
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,0.3)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+    cursor: pointer;
+  }
+  select option { background: #1a1735; color: #fff; }
+
+  /* ── CTA ── */
+  .cta-wrap {
+    margin-top: 24px;
+  }
+  .cta-btn {
+    width: 100%;
+    padding: 16px 24px;
+    background: linear-gradient(135deg, #6b48ff 0%, #8a6eff 60%, #a78bff 100%);
+    border: none;
+    border-radius: 12px;
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.18s, box-shadow 0.18s;
+    box-shadow: 0 4px 24px rgba(107,72,255,0.35);
+  }
+  .cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(107,72,255,0.5);
+  }
+  .cta-btn:active { transform: translateY(0); }
+  .cta-btn::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .cta-btn:hover::after { opacity: 1; }
+  .cta-note {
+    text-align: center;
+    font-size: 0.76rem;
+    color: rgba(255,255,255,0.3);
+    margin-top: 12px;
+  }
+
+  /* ── PERKS ── */
+  .perks {
+    margin-top: 36px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .perk {
+    display: flex; align-items: flex-start; gap: 12px;
+  }
+  .perk-icon {
+    width: 30px; height: 30px; flex-shrink: 0;
+    background: rgba(138,110,255,0.12);
+    border: 1px solid rgba(138,110,255,0.2);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.85rem;
+  }
+  .perk-text { font-size: 0.85rem; color: rgba(255,255,255,0.6); }
+  .perk-text strong { color: rgba(255,255,255,0.85); font-weight: 500; }
+
+  /* ── SUCCESS STATE ── */
+  .success-state {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 0 10px;
+    gap: 16px;
+  }
+  .success-icon {
+    width: 64px; height: 64px;
+    background: linear-gradient(135deg, rgba(107,72,255,0.3), rgba(138,110,255,0.15));
+    border: 1px solid rgba(138,110,255,0.4);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem;
+  }
+  .success-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--heading);
+  }
+  .success-sub {
+    font-size: 0.9rem;
+    color: var(--muted);
+    max-width: 320px;
+    line-height: 1.6;
+  }
+  .success-spot {
+    font-size: 0.8rem;
+    color: var(--violet-bright);
+    background: rgba(138,110,255,0.1);
+    border: 1px solid rgba(138,110,255,0.2);
+    padding: 8px 18px;
+    border-radius: 100px;
+    font-weight: 500;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    position: relative; z-index: 1;
+    text-align: center;
+    padding: 24px;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.18);
+  }
+
+  /* ── ANIM ── */
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 540px) {
+    .form-grid { grid-template-columns: 1fr; }
+    .field.full { grid-column: auto; }
+    .form-card { padding: 28px 22px; }
+    .stats-row { gap: 16px; }
+    h1 { font-size: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-layer"></div>
+<div class="bg-grain"></div>
+
+<nav>
+  <div class="logo">
+    <div class="logo-dot"></div>
+    Vibe Hive
+  </div>
+  <div class="nav-badge">Limited Spots</div>
+</nav>
+
+<div class="wrapper">
+
+  <section class="hero">
+    <div class="eyebrow">
+      <span class="eyebrow-line"></span>
+      Premium Web Package — Waitlist
+    </div>
+    <h1>Your website should be<br/><em>your best salesperson.</em></h1>
+    <p class="hero-sub">
+      We build <strong>Scalable Digital Foundation Systems</strong> — not just websites.
+      Design, development, and SEO built as one integrated system that attracts, converts, and compounds.
+    </p>
+  </section>
+
+  <div class="stats-row">
+    <div class="stat">
+      <div class="stat-num">$8K+</div>
+      <div class="stat-label">Starting investment</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <div class="stat-num">10</div>
+      <div class="stat-label">Pages fully designed & built</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <div class="stat-num">3-in-1</div>
+      <div class="stat-label">UX · Dev · SEO as a system</div>
+    </div>
+  </div>
+
+  <div class="form-card" id="formCard">
+    <div id="formContent">
+      <div class="form-card-header">
+        <div class="form-card-title">Reserve your spot</div>
+        <div class="form-card-sub">We review every application. Only serious brands need apply.</div>
+      </div>
+
+      <form id="waitlistForm" novalidate>
+        <div class="form-grid">
+
+          <div class="field">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Alex Rivera" required />
+          </div>
+
+          <div class="field">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="alex@company.com" required />
+          </div>
+
+          <div class="field">
+            <label for="bizname">Business Name</label>
+            <input type="text" id="bizname" name="bizname" placeholder="Acme Corp" required />
+          </div>
+
+          <div class="field">
+            <label for="country">Country</label>
+            <select id="country" name="country" required>
+              <option value="" disabled selected>Select country</option>
+              <option>Australia</option>
+              <option>United Kingdom</option>
+              <option>United States</option>
+              <option>Canada</option>
+              <option>Germany</option>
+              <option>France</option>
+              <option>Netherlands</option>
+              <option>Singapore</option>
+              <option>Philippines</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="field full">
+            <label for="website">Current Website URL</label>
+            <input type="url" id="website" name="website" placeholder="https://yourwebsite.com (or 'none')" />
+          </div>
+
+          <div class="field full">
+            <label for="budget">Project Budget</label>
+            <select id="budget" name="budget" required>
+              <option value="" disabled selected>Select your budget range</option>
+              <option>$3,000 – $5,000</option>
+              <option>$5,000 – $8,000</option>
+              <option>$8,000 – $15,000</option>
+              <option>$15,000 – $25,000</option>
+              <option>$25,000+</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+
+        </div>
+
+        <div class="cta-wrap">
+          <button type="submit" class="cta-btn" id="submitBtn">
+            Join the Waitlist →
+          </button>
+          <div class="cta-note">No spam. No cold pitches. Just a personal reply from our team.</div>
+        </div>
+
+        <div class="perks">
+          <div class="perk">
+            <div class="perk-icon">⚡</div>
+            <div class="perk-text"><strong>Priority access</strong> — Waitlist members get first look before we open publicly.</div>
+          </div>
+          <div class="perk">
+            <div class="perk-icon">🎯</div>
+            <div class="perk-text"><strong>Free strategy audit</strong> — Every approved application gets a complimentary site & positioning review.</div>
+          </div>
+          <div class="perk">
+            <div class="perk-icon">🔒</div>
+            <div class="perk-text"><strong>Locked pricing</strong> — Waitlist rate is protected. Price increases once spots fill.</div>
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- SUCCESS STATE -->
+    <div class="success-state" id="successState">
+      <div class="success-icon">✦</div>
+      <div class="success-title">You're on the list.</div>
+      <p class="success-sub">We'll review your application and reach out personally within 48 hours. Only serious brands. No fluff.</p>
+      <div class="success-spot" id="spotNum">You're #—</div>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="footer">
+  © 2025 Vibe Hive Digital Services · Where big ideas find their digital vibe.
+</div>
+
+<script>
+  // Simple spot counter using localStorage
+  function getSpotCount() {
+    const stored = localStorage.getItem('vh_waitlist_count');
+    const base = 14; // fake seed so it doesn't start from 0
+    return stored ? parseInt(stored) + base : base;
+  }
+  function incrementSpot() {
+    const stored = localStorage.getItem('vh_waitlist_count') || '0';
+    const next = parseInt(stored) + 1;
+    localStorage.setItem('vh_waitlist_count', next.toString());
+    return next + 14;
+  }
+
+  const form = document.getElementById('waitlistForm');
+  const formContent = document.getElementById('formContent');
+  const successState = document.getElementById('successState');
+  const spotNum = document.getElementById('spotNum');
+  const submitBtn = document.getElementById('submitBtn');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Basic validation
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const bizname = document.getElementById('bizname').value.trim();
+    const country = document.getElementById('country').value;
+    const budget = document.getElementById('budget').value;
+
+    if (!name || !email || !bizname || !country || !budget) {
+      // Shake the button
+      submitBtn.style.animation = 'none';
+      submitBtn.textContent = 'Please fill all required fields';
+      submitBtn.style.background = 'linear-gradient(135deg, #7c3a3a, #a05050)';
+      setTimeout(() => {
+        submitBtn.textContent = 'Join the Waitlist →';
+        submitBtn.style.background = '';
+      }, 2000);
+      return;
+    }
+
+    // Simulate submission
+    submitBtn.textContent = 'Securing your spot...';
+    submitBtn.disabled = true;
+
+    setTimeout(() => {
+      const spot = incrementSpot();
+      spotNum.textContent = `You're #${spot} on the list`;
+
+      formContent.style.transition = 'opacity 0.3s';
+      formContent.style.opacity = '0';
+      setTimeout(() => {
+        formContent.style.display = 'none';
+        successState.style.display = 'flex';
+        successState.style.opacity = '0';
+        successState.style.transition = 'opacity 0.4s';
+        requestAnimationFrame(() => {
+          successState.style.opacity = '1';
+        });
+      }, 300);
+    }, 1200);
+  });
+</script>
+
+</body>
+</html>
