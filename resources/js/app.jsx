@@ -59,7 +59,7 @@ function AnimatedRoutes() {
             <Route path="/" element={<Waitlist />} />
 
             {/* Redirect everything else */}
-            <Route path="*" element={<Navigate to="/waitlist" replace />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </>
         ) : (
           <>
