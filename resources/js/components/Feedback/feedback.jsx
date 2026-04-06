@@ -54,7 +54,6 @@ export default function Feedback({ comment, name, company }) {
                 </div>
             </div>
             <div style={{
-                color: '#fff',
                 fontFamily: 'Plus Jakarta Sans',
                 fontSize: '20px',
                 fontWeight: '600',
