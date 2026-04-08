@@ -109,14 +109,9 @@ const Waitlist = () => {
       </div>
 
       {/* Nav */}
-      <nav style={{ position: "relative", zIndex: 1, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "28px 24px", maxWidth: 680, margin: "0 auto" }}>
+      <nav style={{ position: "relative", zIndex: 1, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "28px 24px", maxWidth: 780, margin: "0 auto" }}>
         <div style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: "1.1rem", color: "#fff", display: "flex", alignItems: "center", gap: 8 }}>
-          <div style={{
-            width: 8, height: 8, background: "#8a6eff", borderRadius: "50%",
-            boxShadow: "0 0 10px #8a6eff",
-            animation: "pulseDot 2s ease-in-out infinite",
-          }} />
-          Vibe Hive
+          <img src="/Assets/logo.png" alt="Vibe Hive Logo" style={{ width: "auto", height: 40 }} />
         </div>
         <div style={{
           fontSize: "0.72rem", fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase",
