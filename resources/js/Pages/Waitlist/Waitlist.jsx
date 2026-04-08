@@ -137,9 +137,9 @@ const Waitlist = () => {
             Premium Web Package — Waitlist
           </div>
           <h1 style={{ fontFamily: "'Syne', sans-serif", fontSize: "clamp(2.4rem, 6vw, 3.4rem)", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.03em", color: "#fff", marginBottom: 20 }}>
-            Your website should be<br />
+            Your website should be{" "}
             <span style={{ background: "linear-gradient(135deg, #a78bff 0%, #c4b0ff 50%, #f0c040 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-              your best salesperson.
+               your best salesperson.
             </span>
           </h1>
           <p style={{ fontSize: "1.05rem", color: "rgba(255,255,255,0.55)", maxWidth: 520, lineHeight: 1.7, marginBottom: 32 }}>
