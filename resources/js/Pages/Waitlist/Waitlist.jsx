@@ -128,7 +128,7 @@ const Waitlist = () => {
       </nav>
 
       {/* Main wrapper */}
-      <div style={{ position: "relative", zIndex: 1, maxWidth: 680, margin: "0 auto", padding: "0 24px 80px" }}>
+      <div style={{ position: "relative", zIndex: 1, maxWidth: 780, margin: "0 auto", padding: "0 24px 80px" }}>
 
         {/* Hero */}
         <section style={{ padding: "52px 0 40px" }}>
@@ -149,7 +149,7 @@ const Waitlist = () => {
         </section>
 
         {/* Stats */}
-        <div style={{ display: "flex", gap: 28, flexWrap: "wrap", marginBottom: 48 }}>
+        <div style={{ display: "flex", gap: 28, flexWrap: "wrap", marginBottom: 48, alignItems: "center", justifyContent: "center" }}>
           {[
             { num: "$8K+", label: "Starting investment" },
             null,
@@ -274,7 +274,7 @@ const Waitlist = () => {
                       }}
                     >
                       <option value="" disabled>Select your budget range</option>
-                      {["$3,000 – $5,000", "$5,000 – $8,000", "$8,000 – $15,000", "$15,000 – $25,000", "$25,000+", "Not sure yet"].map((b) => (
+                      {["Under $2,700 USD", "$2,700 - $4,500 USD", "$4,500 - $7,200 USD", "$7,200+ USD", "Not sure yet"].map((b) => (
                         <option key={b} style={{ background: "#1a1735" }}>{b}</option>
                       ))}
                     </select>
