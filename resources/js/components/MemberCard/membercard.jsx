@@ -37,7 +37,6 @@ export default function MemberCard({ name, role, description, link }) {
         fontFamily: 'Outfit',
         fontSize: '18px',
         fontWeight: '400',
-        color: '#B123FD',
         lineHeight: '152%',
         transition: 'color 0.3s ease',
         color: hovered ? '#C836F2' : '#B123FD',

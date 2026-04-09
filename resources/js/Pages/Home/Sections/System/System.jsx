@@ -17,8 +17,8 @@ const System = () => {
 
   return (
     <div className={styles.systemContainer}>
-      <div ref={badgeRef} style={{ opacity: 0 }}>
-        <Badge text="The System" />
+      <div className={styles.badgeCont} ref={badgeRef} style={{ opacity: 0 }}>
+        <Badge text="The System" style={{ marginBottom: '24px' }} />
       </div>
       <h3 ref={h3Ref} className={styles.systemH3} style={{ opacity: 0 }}>
         We Build <span className={styles.systemSpan}>Digital</span> Growth Systems

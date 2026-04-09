@@ -3,7 +3,7 @@ import styles from './button.module.css';
 import arrowWhite from '../../../../public/Assets/arrow.png';
 import arrowBlack from '../../../../public/Assets/arrow-black.png';
 
-const Button = ({ text, color, hasArrow, func }) => {
+const Button = ({ text, color, hasArrow, func , style}) => {
   const [hovered, setHovered] = useState(false);
 
   const getColorClass = () => {
@@ -50,6 +50,7 @@ const Button = ({ text, color, hasArrow, func }) => {
         style={{
           transition: 'opacity 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease',
           ...getHoverStyle(),
+          ...style,
         }}
       >
         {text}

@@ -74,9 +74,9 @@ const OurWorks = () => {
 
       <div className={styles.ourWorksCarousel} ref={carouselRef} style={{ opacity: 0 }}>
         <div className={styles.ourWorksCarouselMain}>
-          <ArrowButton position="left" func={() => sliderRef.current.slickPrev()} />
+          <ArrowButton className={styles.ourWorksCarouselMainArrow} position="left" func={() => sliderRef.current.slickPrev()} />
 
-          <div style={{ overflow: 'hidden', width: '1045px', height: '714px' }}>
+          <div className={styles.sliderWrapper}>
             <Slider ref={sliderRef} {...settings}>
               {worksData.map((work) => (
                 <div key={work.id}>
@@ -109,7 +109,7 @@ const OurWorks = () => {
             </Slider>
           </div>
 
-          <ArrowButton position="right" func={() => sliderRef.current.slickNext()} />
+          <ArrowButton className={styles.ourWorksCarouselMainArrow} position="right" func={() => sliderRef.current.slickNext()} />
         </div>
 
         <div className={styles.ourWorksCarouselBreadcrumbs}>

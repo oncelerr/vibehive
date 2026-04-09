@@ -31,3 +31,25 @@
     display: flex;
     gap: 24px;
 }
+
+@media (max-width: 769px) {
+    .whyBrandChoseUsContainer {
+        margin-top: 80px;
+        gap: 32px;
+    }
+
+    .h3 {
+        font-size: 32px;
+        text-align: center;
+    }
+
+    .cardCont {
+        width: 312px;
+        gap: 16px;
+    }
+
+    .card {
+        flex-direction: column;
+        gap: 16px;
+    }
+}

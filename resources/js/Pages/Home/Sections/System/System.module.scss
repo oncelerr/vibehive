@@ -30,3 +30,36 @@
     text-align: center;
     color: #B123FD;
 }
+
+@media (max-width: 769px) {
+    .systemContainer {
+        margin-top: 47px;
+        width: 312px;
+
+        p {
+            font-size: 14px;
+            text-align: center;
+        }
+    }
+
+    .systemCardCont {
+        flex-direction: column;
+    }
+
+    .badgeCont {
+
+        span,
+        p,
+        div {
+            font-size: 12px !important;
+        }
+    }
+
+    .systemH3 {
+        font-size: 24px;
+    }
+
+    .systemSpan {
+        font-size: 24px;
+    }
+}

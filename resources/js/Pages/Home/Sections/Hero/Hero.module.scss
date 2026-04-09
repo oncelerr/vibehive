@@ -3,7 +3,7 @@
     padding-top: 238px;
     background-image: url('/Assets/herobg.png');
     background-size: cover;
-    background-position: 70% center;
+    background-position: 100% center;
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
@@ -116,4 +116,78 @@
     line-height: 152%;
     letter-spacing: 0px;
     margin-top: 29px;
+}
+
+@media (max-width: 769px) {
+    .heroWrp {
+        width: 100%;
+        padding-top: 137px;
+        background-image: url('/Assets/herobg.png');
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    .heroH1 {
+        font-size: 36px;
+        width: 312px;
+    }
+
+    .h1ImgStar {
+        display: none;
+    }
+
+    .heroP {
+        font-size: 14px;
+        width: 312px;
+
+        br {
+            display: none;
+        }
+    }
+
+    .heroBtnWrp {
+        flex-direction: column;
+        width: 312px;
+        margin-bottom: 44px;
+    }
+
+    .heroWorksWrp {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px 1px;
+        width: 312px;
+        margin-bottom: 66px;
+    }
+
+    .heroWorksItem {
+        h3 {
+            font-size: 24px;
+        }
+        p {
+            font-size: 14px !important;
+        }
+    }
+
+    .transitionWrp {
+        width: 312px;
+    }
+    
+    .transitionH1 {
+        font-size: 24px;
+
+        br {
+            display: none;
+        }
+    }
+
+    .transitionP {
+        font-size: 14px;
+        width: 100%;
+    }
 }

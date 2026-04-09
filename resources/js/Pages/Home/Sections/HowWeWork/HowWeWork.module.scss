@@ -231,27 +231,91 @@
 }
 
 // Mobile - stack everything
-@media (max-width: 768px) {
-  .pillar {
-    left: 24px;
+@media (max-width: 769px) {
+  .section {
+    padding: 60px 20px;
   }
 
+  .header {
+    h2 {
+      font-size: 32px;
+    }
+
+    p {
+      font-size: 14px;
+
+      br {
+        display: none;
+      }
+    }
+  }
+
+  .h2 {
+    font-size: 32px;
+  }
+
+  /* Hide the top/bottom connectors — replaced by a left-side pillar feel */
+  .connectorTop,
+  .connectorBottom,
+  .connector {
+    display: none;
+  }
+
+  .timeline {
+    gap: 16px;
+  }
+
+  /* All rows become: bubble on left, card on right */
   .row {
+    display: grid;
     grid-template-columns: 48px 1fr;
     grid-template-rows: auto;
+    gap: 16px;
+    align-items: flex-start;
   }
 
+  /* Hide empty placeholder cards */
   .cardEmpty {
     display: none;
   }
 
+  /* Bubble always in column 1 */
   .bubble {
     grid-column: 1;
     grid-row: 1;
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+    margin-top: 8px; /* optically align with card top */
   }
 
+  /* Active card always in column 2 */
   .card {
     grid-column: 2;
     grid-row: 1;
+    width: 100%;
+    height: auto;
+    padding: 24px;
+    gap: 16px;
+    flex-direction: column;
+
+    h3 {
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+
+  .icon img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .footer {
+    font-size: 13px;
+    text-align: center;
+    margin-top: 32px;
   }
 }

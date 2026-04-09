@@ -1,0 +1,36 @@
+.arrowBtn {
+    all: unset;
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
+    background-color: #333333;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.25s ease, transform 0.25s ease;
+
+    img {
+        transition: transform 0.25s ease;
+    }
+
+    &.hovered {
+        background-color: #B123FD;
+    }
+
+    &.left.hovered {
+        transform: scale(1.1) translateX(-2px);
+
+        img {
+            transform: translateX(-2px);
+        }
+    }
+
+    &.right.hovered {
+        transform: scale(1.1) translateX(2px);
+
+        img {
+            transform: translateX(2px);
+        }
+    }
+}

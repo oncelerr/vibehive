@@ -41,8 +41,8 @@ const Hero = () => {
         businesses. Strategy-led. Built to grow with you.
       </p>
       <div ref={btnRef} className={styles.heroBtnWrp} style={{ opacity: 0 }}>
-        <Button text="Apply for a Free Discovery Call" color="gradient" hasArrow="true" />
-        <Button text="See Our Work" color="white" />
+        <Button text="Apply for a Free Discovery Call" color="gradient" hasArrow="true" style={{ width: '100%', padding: '10px 0px' }} />
+        <Button text="See Our Work" color="white" style={{ width: '100%', padding: '10px 0px' }} />
       </div>
       <div className={styles.heroWorksWrp} ref={worksRef}>
         {stats.map((stat, i) => (

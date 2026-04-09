@@ -1,0 +1,99 @@
+.feedback {
+    display: flex;
+    width: 522px;
+    height: 217px;
+    flex-direction: column;
+    gap: 0;
+    transition: transform 0.3s ease;
+    cursor: default;
+
+    &.hovered {
+        transform: translateY(-4px);
+    }
+}
+
+.quote {
+    width: 40px;
+    height: 30px;
+    margin-bottom: 18.02px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+
+    .hovered & {
+        opacity: 1;
+    }
+}
+
+.commentRow {
+    width: 100%;
+    display: flex;
+    gap: 29px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.bar {
+    width: 8px;
+    height: 83px;
+    flex-shrink: 0;
+    background-color: #EB55EC;
+    transition: box-shadow 0.3s ease;
+
+    .hovered & {
+        box-shadow: 0 0 12px rgba(235, 85, 236, 0.6);
+    }
+}
+
+.comment {
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Outfit';
+    font-size: 18px;
+    font-weight: 300;
+    transition: color 0.3s ease;
+
+    .hovered & {
+        color: #fff;
+    }
+}
+
+.name {
+    font-family: 'Plus Jakarta Sans';
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    transition: color 0.3s ease;
+
+    .hovered & {
+        color: #C836F2;
+    }
+}
+
+.company {
+    color: #EB55EC;
+    font-family: 'Plus Jakarta Sans';
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+
+    .hovered & {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 769px) {
+    .feedback {
+        width: 100%;
+        height: auto;
+    }
+
+    .comment {
+        font-size: 15px;
+    }
+
+    .bar {
+        height: auto;
+        align-self: stretch;
+    }
+}

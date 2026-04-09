@@ -46,9 +46,20 @@ const Testimonials = () => {
     speed: 500,
     slidesToShow: 2,
     slidesToScroll: 1,
-    arrows: false,   // using our own ArrowButton
+    arrows: false,
     dots: false,
+    swipe: true,
+    touchMove: true,
     cssEase: 'cubic-bezier(0.4, 0, 0.2, 1)',
+    responsive: [
+      {
+        breakpoint: 769,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        }
+      }
+    ]
   };
 
   return (

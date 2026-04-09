@@ -10,17 +10,17 @@
 }
 
 .glowBar {
-  position: absolute;
-  top: 120px;
-  left: -50px;
-  height: 300.78px;
-  width: 2003.16px;
-  border-radius: 233.5px;
-  background: linear-gradient(180deg, rgb(174, 33, 253, 0.42) 0%, #AE21FD 50%, rgba(84, 84, 212, 0.42) 100%);
-  opacity: 0.2;
-  filter: blur(20px);
-  pointer-events: none;
-  z-index: 0;
+    position: absolute;
+    top: 120px;
+    left: -50px;
+    height: 300.78px;
+    width: 2003.16px;
+    border-radius: 233.5px;
+    background: linear-gradient(180deg, rgb(174, 33, 253, 0.42) 0%, #AE21FD 50%, rgba(84, 84, 212, 0.42) 100%);
+    opacity: 0.2;
+    filter: blur(20px);
+    pointer-events: none;
+    z-index: 0;
 }
 
 .ourWorksTitle {
@@ -69,7 +69,7 @@
         align-items: center;
         justify-content: center;
         gap: 24px;
-        
+
 
         .ourWorksCarouselContent {
             width: 1045px;
@@ -164,6 +164,84 @@
             height: 8px;
             background-color: #2D2D2D;
             border-radius: 50%;
+        }
+    }
+}
+
+.sliderWrapper {
+    overflow: hidden;
+    width: 1045px;
+    height: 714px;
+
+    @media (max-width: 769px) {
+        width: 312px;
+        height: auto;
+    }
+}
+
+@media (max-width: 769px) {
+    .ourWorksContainer {
+        margin-top: 60px;
+        gap: 12px;
+    }
+
+    .desktopArrow {
+        display: none;
+    }
+
+    .ourWorksTitle {
+        font-size: 32px;
+        text-align: center;
+    }
+
+    .ourWorksDescription {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .ourWorksCarousel {
+        width: 312px;
+        height: auto;
+        margin-top: 16px;
+        margin-bottom: 16px;
+
+        .ourWorksCarouselMain {
+            gap: 8px;
+
+            >*:first-child,
+            >*:last-child {
+                display: none;
+            }
+
+            .ourWorksCarouselContent {
+                width: 312px;
+                height: auto;
+
+                .ourWorksCarouselContentTop {
+                    height: 200px;
+                }
+
+                .ourWorksCarouselContentBottom {
+                    height: auto;
+                    padding: 24px 20px;
+
+                    .ourWorksCarouselContentBottomTags {
+                        gap: 8px;
+                        margin-bottom: 16px;
+                        flex-wrap: wrap;
+                        justify-content: center;
+                    }
+
+                    .ourWorksCarouselContentBottomTitle {
+                        font-size: 18px;
+                        margin-bottom: 10px;
+                    }
+
+                    .ourWorksCarouselContentBottomDescription {
+                        font-size: 13px;
+                    }
+                }
+            }
         }
     }
 }
