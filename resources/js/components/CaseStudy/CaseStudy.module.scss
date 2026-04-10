@@ -33,3 +33,82 @@
 .desc {
   font-size: 16px;
 }
+
+.container {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    cursor: default;
+}
+
+.img {
+    border-radius: 16px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: none;
+
+    .container:hover & {
+        transform: scale(1.02);
+        box-shadow: 0 12px 40px rgba(177, 35, 253, 0.2);
+    }
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.title {
+    font-family: 'Outfit';
+    font-size: 32px;
+    font-weight: 600;
+    color: white;
+    transition: color 0.3s ease;
+
+    .container:hover & {
+        color: #C836F2;
+    }
+}
+
+.desc {
+    font-family: 'Manrope';
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+    transition: color 0.3s ease;
+
+    .container:hover & {
+        color: rgba(255, 255, 255, 0.9);
+    }
+}
+
+@media (max-width: 769px) {
+    .container {
+        flex-direction: column;
+        width: 312px;
+    }
+
+    .img {
+        width: 100%;
+        height: auto;
+    }
+
+    .right {
+        width: 100%;
+    }
+
+    .title {
+        font-size: 22px;
+    }
+
+    .desc {
+        font-size: 14px;
+    }
+}

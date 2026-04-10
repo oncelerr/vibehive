@@ -309,3 +309,34 @@
   cursor: pointer;
   transition: opacity 0.2s ease;
 }
+
+@media (max-width: 769px) {
+    .card {
+        width: 312px;
+        border-radius: 16px;
+    }
+
+    .inner {
+        width: 264px;
+        margin: 32px auto 0;
+        gap: 16px;
+    }
+
+    .topText {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .bottomNote {
+        width: 100%;
+    }
+
+    .grid {
+        width: 100%;
+    }
+
+    .TextFieldBtnWrp {
+        width: 100%;
+        margin: 8px auto 32px;
+    }
+}
