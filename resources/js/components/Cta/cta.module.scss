@@ -73,3 +73,32 @@
     height: 48px;
     margin-left: 16px;
 }
+
+@media (max-width: 769px) {
+    .container {
+        margin-top: 80px;
+        margin-bottom: 80px;
+    }
+
+    .h1 {
+        font-size: 36px;
+        width: 312px;
+    }
+
+    .description {
+        font-size: 15px;
+        width: 312px;
+        margin-bottom: 32px;
+    }
+
+    .star {
+        width: 28px;
+        height: 28px;
+        margin-left: 8px;
+    }
+
+    .btncontainer {
+        flex-direction: column;
+        width: 312px;
+    }
+}

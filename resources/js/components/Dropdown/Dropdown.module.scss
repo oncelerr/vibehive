@@ -1,0 +1,109 @@
+.dropdown {
+    background-color: #141A37;
+    padding: 19px 23px;
+    border-radius: 16px;
+    font-family: 'Poppins';
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+    border: 1px solid transparent;
+    box-shadow: none;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+
+    &.hovered {
+        background-color: #1A2147;
+        border-color: rgba(177, 35, 253, 0.3);
+    }
+
+    &.open {
+        background-color: #1A2147;
+        border-color: #B123FD;
+        box-shadow: 0 8px 32px rgba(177, 35, 253, 0.12);
+    }
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.text {
+    color: white;
+    transition: color 0.3s ease;
+
+    .hovered & {
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    .open & {
+        color: #C836F2;
+    }
+}
+
+.chevron {
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #A719F9;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: transform 300ms ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    transform: rotate(0deg);
+    box-shadow: none;
+
+    .open & {
+        background-color: #C836F2;
+        transform: rotate(180deg);
+        box-shadow: 0 0 12px rgba(200, 54, 242, 0.5);
+    }
+}
+
+.body {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 300ms ease;
+
+    .open & {
+        grid-template-rows: 1fr;
+    }
+}
+
+.bodyInner {
+    overflow: hidden;
+}
+
+.hr {
+    margin-top: 19px;
+    opacity: 0.1;
+}
+
+.desc {
+    margin: 0;
+    padding-top: 16px;
+    font-size: 15px;
+    font-weight: 400;
+    color: #9CA3AF;
+    line-height: 1.6;
+}
+
+@media (max-width: 769px) {
+    .dropdown {
+        font-size: 14px;
+    }
+
+    .chevron {
+        width: 36px;
+        height: 36px;
+    }
+
+    .desc {
+        font-size: 13px;
+    }
+}

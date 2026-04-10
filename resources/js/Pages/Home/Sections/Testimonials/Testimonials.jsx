@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -35,31 +35,29 @@ const Testimonials = () => {
   const sliderRef = useRef(null);
   const headerRef = useRef(null);
   const carouselRef = useRef(null);
+  const [slidesToShow, setSlidesToShow] = useState(window.innerWidth <= 769 ? 1 : 2);
 
   useEffect(() => {
     const ctx = runTestimonialsAnimations({ headerRef, carouselRef });
     return () => ctx.revert();
   }, []);
 
+  useEffect(() => {
+    const handler = () => setSlidesToShow(window.innerWidth <= 769 ? 1 : 2);
+    window.addEventListener('resize', handler);
+    return () => window.removeEventListener('resize', handler);
+  }, []);
+
   const settings = {
     infinite: true,
     speed: 500,
-    slidesToShow: 2,
+    slidesToShow: slidesToShow,
     slidesToScroll: 1,
     arrows: false,
     dots: false,
     swipe: true,
     touchMove: true,
     cssEase: 'cubic-bezier(0.4, 0, 0.2, 1)',
-    responsive: [
-      {
-        breakpoint: 769,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        }
-      }
-    ]
   };
 
   return (
