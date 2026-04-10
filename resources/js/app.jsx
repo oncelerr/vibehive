@@ -12,11 +12,9 @@ import OurWorks from './Pages/OurWorks/OurWorks';
 import Curve from './components/Curve/Index';
 import Navbar from './components/Navbar/Index';
 import Footer from './components/Footer/Footer'
-import PremiumCorporateSolutions from './Pages/CaseStudy/PremiumCorporateSolutions/index'
-import KoghCloud from './Pages/CaseStudy/KoghCloud/index'
-import VerticalTalentSolutions from './Pages/CaseStudy/VerticalTalentSolutions/index'
 import Waitlist from './Pages/Waitlist/Waitlist'
 import NotFound from './Pages/NotFound/NotFound';
+import CaseStudyPage from './Pages/CaseStudy/CaseStudyPage';
 
 function Layout() {
   const location = useLocation();
@@ -70,17 +68,7 @@ function AnimatedRoutes() {
             <Route path="/about" element={<Curve><About /></Curve>} />
             <Route path="/our-works" element={<Curve><OurWorks /></Curve>} />
 
-            <Route path="/case-study/premium-corporate-solutions"
-              element={<Curve><PremiumCorporateSolutions /></Curve>}
-            />
-
-            <Route path="/case-study/kogh-cloud"
-              element={<Curve><KoghCloud /></Curve>}
-            />
-
-            <Route path="/case-study/vertical-talent-solutions"
-              element={<Curve><VerticalTalentSolutions /></Curve>}
-            />
+            <Route path="/case-study/:slug" element={<Curve><CaseStudyPage /></Curve>} />
 
             <Route path="*" element={<Curve><NotFound /></Curve>} />
           </>
