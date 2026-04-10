@@ -1,0 +1,88 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    padding: 48px;
+    gap: 16px;
+    background-color: #141A37;
+    color: white;
+    border-radius: 16px;
+    width: 417px;
+    height: 423px;
+    border: 1px solid transparent;
+    box-shadow: none;
+    transform: translateY(0);
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    cursor: default;
+
+    &.hovered {
+        background-color: #1A2147;
+        border-color: #B123FD;
+        box-shadow: 0 8px 32px rgba(177, 35, 253, 0.15);
+        transform: translateY(-6px);
+    }
+}
+
+.name {
+    font-family: 'Outfit';
+    font-size: 32px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.role {
+    font-family: 'Outfit';
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 152%;
+    color: #B123FD;
+    transition: color 0.3s ease;
+
+    .hovered & {
+        color: #C836F2;
+    }
+}
+
+.description {
+    font-family: 'Manrope';
+    font-size: 16px;
+    font-weight: 300;
+    color: #fff;
+    line-height: 152%;
+    transition: color 0.3s ease;
+
+    .hovered & {
+        color: rgba(255, 255, 255, 0.9);
+    }
+}
+
+.linkedin {
+    width: 22px;
+    height: 22px;
+    opacity: 0.7;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+
+    .hovered & {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 769px) {
+    .card {
+        width: 85%;
+        height: auto;
+        padding: 24px;
+    }
+
+    .name {
+        font-size: 22px;
+    }
+
+    .role {
+        font-size: 15px;
+    }
+
+    .description {
+        font-size: 14px;
+    }
+}

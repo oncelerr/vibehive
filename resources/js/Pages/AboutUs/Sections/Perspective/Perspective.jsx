@@ -26,45 +26,14 @@ const PerspectiveCard = ({ img, title, desc }) => {
 
   return (
     <div
-      className={styles.card}
+      className={`${styles.card} ${hovered ? styles.hovered : ''}`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      style={{
-        border: `1px solid ${hovered ? '#B123FD' : 'transparent'}`,
-        backgroundColor: hovered ? '#1A2147' : '#141A37',
-        boxShadow: hovered ? '0 8px 32px rgba(177, 35, 253, 0.15)' : 'none',
-        transform: hovered ? 'translateX(6px)' : 'translateX(0)',
-        transition: 'background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease',
-      }}
     >
-      <img
-        className={styles.img}
-        src={img}
-        alt=""
-        style={{
-          transition: 'transform 0.3s ease',
-          transform: hovered ? 'scale(1.1) rotate(-5deg)' : 'scale(1) rotate(0deg)',
-        }}
-      />
+      <img className={styles.img} src={img} alt="" />
       <div className={styles.text}>
-        <div
-          className={styles.text1}
-          style={{
-            transition: 'color 0.3s ease',
-            color: hovered ? '#C836F2' : 'white',
-          }}
-        >
-          {title}
-        </div>
-        <div
-          className={styles.text2}
-          style={{
-            transition: 'color 0.3s ease',
-            color: hovered ? 'rgba(255,255,255,0.9)' : 'white',
-          }}
-        >
-          {desc}
-        </div>
+        <div className={styles.text1}>{title}</div>
+        <div className={styles.text2}>{desc}</div>
       </div>
     </div>
   );

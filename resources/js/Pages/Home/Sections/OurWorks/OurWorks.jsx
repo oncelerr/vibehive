@@ -132,7 +132,7 @@ const OurWorks = () => {
       </div>
 
       <div ref={btnRef} style={{ opacity: 0 }}>
-        <GradientButton text="View All Projects" color="gradient" hasArrow="true" />
+        <GradientButton text="View All Projects" color="gradient" hasArrow="true" style={{padding: "10px"}}/>
       </div>
     </div>
   );

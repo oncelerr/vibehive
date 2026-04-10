@@ -39,7 +39,8 @@ const Founders = () => {
         <div className={styles.hr2} />
       </div>
       <div ref={teamCardRef} className={styles.teamCard} style={{ opacity: 0 }}>
-        <img src="/Assets/team.png" alt="" />
+        <img className={styles.teamImg1} src="/Assets/team.png" alt="" />
+        <img className={styles.teamImg2} src="/Assets/team1.png" alt="" />
         <p className={styles.teamP}>
           Behind every Vibe Hive project is a dedicated team of specialists: UI/UX designers who obsess over user experience, developers who write clean and performant code, SEO strategists who build for visibility, and project managers who keep everything running smoothly.
           <br /><br />

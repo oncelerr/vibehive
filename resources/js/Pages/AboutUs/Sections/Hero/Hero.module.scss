@@ -79,3 +79,64 @@
 .p {
     font-size: 18px;
 }
+
+.teamImgDesktop {
+    display: block;
+
+    @media (max-width: 769px) {
+        display: none;
+    }
+}
+
+.teamImgMobile {
+    display: none;
+
+    @media (max-width: 769px) {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 769px) {
+    .container {
+        background-image: url('/Assets/aboutmobilebg.png');
+        padding-top: 120px;
+        background-size: cover;
+    }
+
+    .h1 {
+        font-size: 36px;
+        width: 312px;
+
+        br {
+            display: none;
+        }
+    }
+
+    .team {
+        flex-direction: column;
+        align-items: center;
+        width: 312px;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .text {
+        margin: 24px 0;
+        width: 312px;
+        height: auto;
+        gap: 16px;
+    }
+
+    .vr {
+        display: none;
+    }
+
+    .p {
+        font-size: 14px;
+    }
+}
