@@ -14,7 +14,7 @@ function ScrollToTop() {
 	return null;
 }
 
-const SocialIcon = ({ src, alt }) => {
+const SocialIcon = ({ src, alt, url }) => {
 	const [hovered, setHovered] = useState(false);
 
 	return (
@@ -29,6 +29,7 @@ const SocialIcon = ({ src, alt }) => {
 				transform: hovered ? 'translateY(-3px) scale(1.15)' : 'translateY(0) scale(1)',
 				opacity: hovered ? 1 : 0.7,
 			}}
+			onClick={() => window.open(url, '_blank')}
 		/>
 	);
 };
@@ -82,10 +83,10 @@ const Footer = () => {
 							<p>(001) 1231 3435</p>
 						</div>
 						<div className={styles.rightlinks}>
-							<SocialIcon src="/Assets/fb.png" alt="Facebook" />
-							<SocialIcon src="/Assets/insta.png" alt="Instagram" />
-							<SocialIcon src="/Assets/linkedin.png" alt="LinkedIn" />
-							<SocialIcon src="/Assets/ball.png" alt="Dribbble" />
+							<SocialIcon src="/Assets/fb.png" alt="Facebook" url="https://www.facebook.com/itsvibehive" />
+							<SocialIcon src="/Assets/insta.png" alt="Instagram" url="https://www.instagram.com/vibehiveph" />
+							<SocialIcon src="/Assets/linkedin.png" alt="LinkedIn" url="https://www.linkedin.com/company/vibe-hive-ph/" />
+							{/* <SocialIcon src="/Assets/ball.png" alt="Dribbble" url="https://dribbble.com/itsvibehive" /> */}
 						</div>
 					</div>
 				</div>
@@ -94,7 +95,7 @@ const Footer = () => {
 					<div className={styles.links}>
 						<NavLink label="Home" onClick={() => handleNavClick('/')} />
 						<NavLink label="About" onClick={() => handleNavClick('/about')} />
-						<NavLink label="Services" onClick={() => handleNavClick('/our-works')} />
+						{/* <NavLink label="Services" onClick={() => handleNavClick('/our-works')} /> */}
 						<NavLink label="Portfolio" onClick={() => handleNavClick('/our-works')} />
 						<NavLink label="Contact" onClick={() => handleNavClick('/contact')} />
 					</div>

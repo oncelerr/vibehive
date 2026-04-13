@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import styles from './Hero.module.scss';
 import Button from '../../../../components/GradientButton/button';
 import { runHeroAnimations } from './heroAnimations';
+import { useNavigate } from 'react-router-dom';
 
 const stats = [
   { value: 50, suffix: '+', label: 'Websites Launched' },
@@ -17,6 +18,7 @@ const Hero = () => {
   const pRef = useRef(null);
   const btnRef = useRef(null);
   const transitionWrpRef = useRef(null);
+  const Navigate = useNavigate();
 
   useEffect(() => {
     const ctx = runHeroAnimations({
@@ -41,8 +43,8 @@ const Hero = () => {
         businesses. Strategy-led. Built to grow with you.
       </p>
       <div ref={btnRef} className={styles.heroBtnWrp} style={{ opacity: 0 }}>
-        <Button text="Apply for a Free Discovery Call" color="gradient" hasArrow="true"/>
-        <Button text="See Our Work" color="white"/>
+        <Button text="Apply for a Free Discovery Call" color="gradient" hasArrow="true" func={() => Navigate('/contact')}/>
+        <Button text="See Our Work" color="white" func={() => Navigate('/our-works')}/>
       </div>
       <div className={styles.heroWorksWrp} ref={worksRef}>
         {stats.map((stat, i) => (

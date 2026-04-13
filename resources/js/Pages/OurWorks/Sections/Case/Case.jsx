@@ -14,24 +14,24 @@ const Case = () => {
   return (
     <div className={styles.container} ref={containerRef}>
       <CaseStudy
-        img={'casestudykogh'}
-        tags={['Visual Design', 'Visual Design', 'Visual Design']}
-        title={'Coca - Tech Startup Landing Page'}
-        desc={'We start by getting to know our clients, their business goals, and their target audience. This involves conducting research, analyzing data, and discussing ideas with our clients to gain a deep understanding of their needs.'}
+        img={'casestudypcs'}
+        tags={['Legal Services']}
+        title={'Premium Corporate Solutions'}
+        desc={'Inherited a website with poor UX, zero client management system, and critical security vulnerabilities, the outcome is Zero critical vulnerabilities post-penetration testing; launched in 6 weeks; clients now self-serve case tracking with no back-and-forth'}
         link={'/case-study/premium-corporate-solutions'}
       />
       <CaseStudy
         img={'casestudykogh'}
-        tags={['Visual Design', 'Visual Design', 'Visual Design']}
-        title={'Coca - Tech Startup Landing Page'}
-        desc={'We start by getting to know our clients, their business goals, and their target audience. This involves conducting research, analyzing data, and discussing ideas with our clients to gain a deep understanding of their needs.'}
+        tags={['Technology', 'Cloud Services']}
+        title={'KOGH Cloud'}
+        desc={'No effective web presence to communicate complex technical offerings; budget-conscious with past negative agency experience the outcome is Professional website launched in 4 weeks; increased web traffic and improved brand awareness in a competitive cloud market.'}
         link={'/case-study/kogh-cloud'}
       />
       <CaseStudy
-        img={'casestudykogh'}
-        tags={['Visual Design', 'Visual Design', 'Visual Design']}
-        title={'Coca - Tech Startup Landing Page'}
-        desc={'We start by getting to know our clients, their business goals, and their target audience. This involves conducting research, analyzing data, and discussing ideas with our clients to gain a deep understanding of their needs.'}
+        img={'casestudyvts'}
+        tags={['HR Business Process Outsourcing']}
+        title={'Vertical Talent Solutions'}
+        desc={'Outdated single-person no-code WordPress site undermining credibility with enterprise-level prospects the outcome is Full UI/UX and website transformation to enterprise-grade standard; optimized user journey for B2B HR decision-makers'}
         link={'/case-study/vertical-talent-solutions'}
       />
       <img className={styles.gradient} src="/Assets/casegradient.png" alt="" />

@@ -11,13 +11,13 @@ const cards = [
   },
   {
     img: '/Assets/rocket.png',
-    title: 'Outcomes Over Assets',
-    desc: 'We do not just deliver websites or designs. We deliver clarity for your audience, conversions for your business, and foundations for your growth.',
+    title: 'Honesty Over Hype',
+    desc: 'We will tell you what works, what does not, and what you actually need. If we are not the right fit for your project, we will say so upfront.',
   },
   {
     img: '/Assets/rocket.png',
-    title: 'Outcomes Over Assets',
-    desc: 'We do not just deliver websites or designs. We deliver clarity for your audience, conversions for your business, and foundations for your growth.',
+    title: 'Systems Over Services',
+    desc: 'A beautiful website that does not convert is just an expensive brochure. We build complete systems where strategy, design, development, and optimization work together.',
   },
 ];
 

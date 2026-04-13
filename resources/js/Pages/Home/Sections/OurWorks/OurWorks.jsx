@@ -7,6 +7,7 @@ import Badge from '../../../../components/Badge/badge';
 import GradientButton from '../../../../components/GradientButton/button';
 import ArrowButton from '../../../../components/ArrowButton/arrowbtn';
 import { runOurWorksAnimations } from './ourWorksAnimations';
+import { useNavigate } from 'react-router-dom';
 
 const worksData = [
   {
@@ -33,6 +34,7 @@ const worksData = [
 ];
 
 const OurWorks = () => {
+  const navigate = useNavigate();
   const sliderRef = useRef(null);
   const [current, setCurrent] = React.useState(0);
 
@@ -132,7 +134,7 @@ const OurWorks = () => {
       </div>
 
       <div ref={btnRef} style={{ opacity: 0 }}>
-        <GradientButton text="View All Projects" color="gradient" hasArrow="true" style={{padding: "10px"}}/>
+        <GradientButton text="View All Projects" color="gradient" hasArrow="true" style={{padding: "10px"}} func={() => navigate('/our-works')}/>
       </div>
     </div>
   );

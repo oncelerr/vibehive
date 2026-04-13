@@ -4,7 +4,7 @@ export const caseStudies = [
     pill: 'CASE STUDY',
     title: 'Premium Corporate Solutions',
     description: 'Premium Corporate Solutions is a legal services company based in the U.S. Handling sensitive client information, legal documents, case deadlines, and confidential records, their digital infrastructure needed to be more than just a website. It had to be a secure, functional system that clients could trust with their most important matters.',
-    heroImage: '/Assets/Rectangle.png',
+    heroImage: '/Assets/pcs_mockup.png',
     challenge: {
       intro: 'The company had previously hired a web developer who failed on multiple fronts:',
       cards: [
@@ -66,7 +66,7 @@ export const caseStudies = [
       'Strengthened brand confidence through professional design and secure infrastructure',
     ],
     testimonial: {
-      avatar: '/Assets/icon.png',
+      avatar: '/Assets/pcsicon.jpg',
       client: 'Premium Corporate Solutions',
       quote: 'Vibe Hive delivered exceptional web development, design, and social media management services that truly exceeded my expectations. Their team was trustworthy and reliable from start to finish, consistently communicating and delivering on every promise. They brought great ideas to the table, combining creativity with strategic thinking to elevate our online presence. What stood out most was their hard work and perseverance, no challenge was too big, and the results proved that every peso spent was absolutely worth it. I highly recommend Vibe Hive to anyone looking for a partner who delivers quality and value.',
     },
@@ -74,9 +74,9 @@ export const caseStudies = [
   {
     slug: 'kogh-cloud',
     pill: 'CASE STUDY',
-    title: 'Technology and Cloud Services',
+    title: 'KOGH Cloud',
     description: 'Kogh Cloud, a growing cloud services provider, faced a common challenge for tech companies: how to translate complex technical offerings into a clear, professional web presence. With past negative experiences working with agencies and concerns about budget and delivery quality, they needed a partner who could deliver both quality and clarity without the typical agency overhead.',
-    heroImage: '/Assets/Rectangle.png',
+    heroImage: '/Assets/kogh_mockup.png',
     challenge: {
       intro: 'Kogh Cloud needed to establish credibility in the competitive cloud services market through a professional digital presence.',
       bullets: [
@@ -126,7 +126,7 @@ export const caseStudies = [
       'Strengthened digital credibility in competitive cloud services sector',
     ],
     testimonial: {
-      avatar: '/Assets/icon.png',
+      avatar: '/Assets/koghicon.png',
       client: 'Kogh Cloud INC.',
       quote: 'Vibe Hive is a team of young professionals with plenty of creativity and passion. They bring great energy to the project and are truly ready to collaborate to achieve objectives. The communication throughout the process was strong, and the pricing was fair for the services delivered. We saw an increase in web traffic and improved brand awareness after launch.',
     },
@@ -134,9 +134,9 @@ export const caseStudies = [
   {
     slug: 'vertical-talent-solutions',
     pill: 'CASE STUDY',
-    title: 'Human Resource Business Process Outsourcing',
+    title: 'Vertical Talent Solutions',
     description: 'Vertical Talent Solutions, an established Human Resource Business Process Outsourcing firm, faced a critical digital credibility gap. Their existing website, a single-person no-code WordPress build, failed to reflect the professionalism and scale of their business operations. With dated design patterns, unclear messaging, and poor user experience, they needed a complete digital transformation to match their market positioning and attract enterprise-level clients.',
-    heroImage: '/Assets/Rectangle.png',
+    heroImage: '/Assets/vts.png',
     challenge: {
       intro: 'Vertical Talent Solutions needed to replace their existing website with a professional digital presence worthy of their BPO expertise.',
       bullets: [
@@ -186,7 +186,7 @@ export const caseStudies = [
       'Significant visual and functional improvement over previous digital presence',
     ],
     testimonial: {
-      avatar: '/Assets/icon.png',
+      avatar: '/Assets/vtsicon.png',
       client: 'Vertical Talent Solutions',
       quote: 'Appreciate you guys and the work thus far. The team at Vibe Hive was open to suggestions but still brought forward ideas that made the website stand out. Young, talented professionals who know how to collaborate effectively.',
     },

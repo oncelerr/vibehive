@@ -36,26 +36,23 @@
 
 .container {
     display: flex;
-    gap: 32px;
+    gap: 64px;
+    width: 1240px;
     align-items: center;
     cursor: default;
 }
 
 .img {
+    width: 572px;
+    height: 385px;
     border-radius: 16px;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    box-shadow: none;
+    object-fit: cover;
+    transition: transform 0.4s ease, filter 0.4s ease;
 
     .container:hover & {
         transform: scale(1.02);
-        box-shadow: 0 12px 40px rgba(177, 35, 253, 0.2);
+        filter: drop-shadow(0 12px 40px rgba(177, 35, 253, 0.35));
     }
-}
-
-.right {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
 }
 
 .tags {
