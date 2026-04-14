@@ -92,7 +92,7 @@ const Footer = () => {
 							<SocialIcon src="/Assets/fb.png" alt="Facebook" url="https://www.facebook.com/itsvibehive" />
 							<SocialIcon src="/Assets/insta.png" alt="Instagram" url="https://www.instagram.com/vibehiveph" />
 							<SocialIcon src="/Assets/linkedin.png" alt="LinkedIn" url="https://www.linkedin.com/company/vibe-hive-ph/" />
-							{/* <SocialIcon src="/Assets/ball.png" alt="Dribbble" url="https://dribbble.com/itsvibehive" /> */}
+							<SocialIcon src="/Assets/ball.png" alt="Dribbble" url="https://dribbble.com/vibe-hive" />
 						</div>
 					</div>
 				</div>
