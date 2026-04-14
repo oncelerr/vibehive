@@ -174,7 +174,7 @@
     height: 714px;
 
     @media (max-width: 769px) {
-        width: 312px;
+        width: 85%;
         height: auto;
     }
 }
@@ -200,7 +200,7 @@
     }
 
     .ourWorksCarousel {
-        width: 312px;
+        width: 100%;
         height: auto;
         margin-top: 16px;
         margin-bottom: 16px;
@@ -214,7 +214,7 @@
             }
 
             .ourWorksCarouselContent {
-                width: 312px;
+                width: 100%;
                 height: auto;
 
                 .ourWorksCarouselContentTop {

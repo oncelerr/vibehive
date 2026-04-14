@@ -8,8 +8,7 @@
     svg,
     .background {
         position: fixed;
-        height: calc(100vh + 600px); // fallback
-        height: calc(100dvh + 600px); // overrides on browsers that support it
+        height: calc(100dvh + 1000px);
         width: 100vw;
         pointer-events: none;
         left: 0;

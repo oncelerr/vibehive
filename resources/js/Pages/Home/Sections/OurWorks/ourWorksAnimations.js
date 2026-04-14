@@ -52,7 +52,7 @@ export const runOurWorksAnimations = ({ badgeRef, titleRef, descRef, carouselRef
         ease: 'power3.out',
         scrollTrigger: {
           trigger: btnRef.current,
-          start: 'top 90%',
+          start: 'top 85%',
           once: true,
         },
       }

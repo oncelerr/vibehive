@@ -35,7 +35,7 @@ export const runHowWeWorkAnimations = ({ headerRef, timelineRef, bubbleRefs, car
         ease: 'power3.out',
         scrollTrigger: {
           trigger: footerRef.current,
-          start: 'top 90%',
+          start: 'top 85%',
           once: true,
         },
       }

@@ -133,8 +133,8 @@ const OurWorks = () => {
         </div>
       </div>
 
-      <div ref={btnRef} style={{ opacity: 0 }}>
-        <GradientButton text="View All Projects" color="gradient" hasArrow="true" style={{padding: "10px"}} func={() => navigate('/our-works')}/>
+      <div ref={btnRef} style={{ opacity: 0 , width: '85%'}}>
+        <GradientButton text="View All Projects" color="gradient" hasArrow="true" func={() => navigate('/our-works')}/>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 .wrapper {
   display: flex;
   justify-content: center;
+  width: 85%;
 }
 
 .card {
@@ -312,13 +313,13 @@
 
 @media (max-width: 769px) {
     .card {
-        width: 312px;
+        width: 100%;
         border-radius: 16px;
     }
 
     .inner {
-        width: 264px;
-        margin: 32px auto 0;
+        width: calc(100% - 48px);
+        margin: 24px;
         gap: 16px;
     }
 

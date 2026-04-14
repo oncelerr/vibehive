@@ -135,7 +135,7 @@
 
     .heroH1 {
         font-size: 36px;
-        width: 312px;
+        width: 85%;
     }
 
     .h1ImgStar {
@@ -144,7 +144,7 @@
 
     .heroP {
         font-size: 14px;
-        width: 312px;
+        width: 85%;
 
         br {
             display: none;
@@ -153,7 +153,7 @@
 
     .heroBtnWrp {
         flex-direction: column;
-        width: 312px;
+        width: 85%;
         margin-bottom: 44px;
     }
 
@@ -161,7 +161,7 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 15px 1px;
-        width: 312px;
+        width: 85%;
         margin-bottom: 66px;
     }
 
@@ -175,7 +175,7 @@
     }
 
     .transitionWrp {
-        width: 312px;
+        width: 85%;
     }
     
     .transitionH1 {
