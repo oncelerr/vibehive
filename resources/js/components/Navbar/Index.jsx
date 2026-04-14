@@ -84,12 +84,18 @@ function Navbar() {
       {/* Top-down slide menu */}
       <div className={`${styles['mobile-menu']} ${isMenuOpen ? styles['mobile-menu--open'] : ''}`}>
         <NavLogo className={styles['nav-logo-menu']} />
+
+        {/* Close button */}
+        <button className={styles['close-btn']} onClick={toggleMenu} aria-label="Close menu">
+          ✕
+        </button>
+
         <nav className={styles['mobile-nav-links']}>
           <a className={`${styles['mobile-nav']}`} onClick={() => handleNavClick('/')}>Home</a>
           <a className={`${styles['mobile-nav']}`} onClick={() => handleNavClick('/about')}>About</a>
           <a className={`${styles['mobile-nav']}`} onClick={() => handleNavClick('/our-works')}>Our Works</a>
           <a className={`${styles['mobile-nav']}`} onClick={() => handleNavClick('/contact')}>Contact Us</a>
-          <button className={`${styles['connect-btn']}`} onClick={() => handleNavClick('/contact')}>Let's talk</button>
+          <button className={`${styles['connect-btn']}`} onClick={() => handleNavClick('/book-an-appointment')}>Let's talk</button>
         </nav>
       </div>
 

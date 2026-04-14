@@ -363,6 +363,7 @@
         flex-direction: row;
         gap: 16px;
         align-items: center;
+        display: none;
     }
 }
 
@@ -416,6 +417,9 @@
 
 .verticalLine {
     width: 4px;
+    align-self: stretch;
+    background-color: #eb55ec;
+    border-radius: 2px;
     flex-shrink: 0;
 }
 
@@ -424,11 +428,9 @@
     font-size: 18px;
     line-height: 30px;
     color: #FFFFFF;
-    margin-bottom: 120px;
 
     @media (max-width: 769px) {
         font-size: 14px;
         line-height: 1.7;
-        margin-bottom: 60px;
     }
 }

@@ -10,6 +10,7 @@ const routes = {
   '/about': 'About',
   '/contact': 'Contact',
   '/our-works': 'Our Works',
+  '/book-an-appointment': 'Book an Appointment',
 };
 
 const anim = (variants) => {

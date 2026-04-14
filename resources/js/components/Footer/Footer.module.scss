@@ -72,15 +72,17 @@
     }
 
     .top {
-        width: 312px;
+        width: 100%;
         flex-direction: column;
+        align-items: left;
         gap: 32px;
-        margin-bottom: 48px;
+        margin-bottom: 32px;
     }
 
     .logo {
         display: flex;
         flex-direction: column;
+        align-items: center;
         gap: 12px;
 
         img {
@@ -92,15 +94,29 @@
             color: white;
             font-family: 'Outfit';
             font-weight: 300;
+            text-align: center;
         }
     }
 
+    .right {
+        align-items: flex-start;   // contact items left-aligned as in screenshot
+        gap: 20px;
+    }
+
+    .rightitem {
+        align-items: center;
+    }
+
+    .rightlinks {
+        gap: 20px;
+    }
+
     .hr {
-        width: 312px;
+        width: 100%;
     }
 
     .bottom {
-        width: 312px;
+        width: 100%;
         flex-direction: column;
         align-items: center;
         gap: 24px;
@@ -108,8 +124,8 @@
     }
 
     .links {
-        flex-wrap: wrap;
-        justify-content: center;
+        flex-direction: column;    // stacked vertically as in screenshot
+        align-items: flex-start;
         gap: 16px;
     }
 
@@ -117,5 +133,28 @@
         font-size: 13px;
         text-align: center;
         opacity: 0.6;
+    }
+}
+
+.links_mobile {
+    display: none;
+}
+
+@media (max-width: 769px) {
+    .links_mobile {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        span {
+            font-family: 'Outfit';
+            font-size: 16px;
+            font-weight: 300;
+            color: white;
+        }
+    }
+
+    .bottom .links {
+        display: none;   // hide the original bottom nav on mobile
     }
 }

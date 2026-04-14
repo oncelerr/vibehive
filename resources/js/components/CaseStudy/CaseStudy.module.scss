@@ -90,6 +90,7 @@
     .container {
         flex-direction: column;
         width: 312px;
+        gap: 24px;
     }
 
     .img {
@@ -99,6 +100,7 @@
 
     .right {
         width: 100%;
+        gap: 24px;
     }
 
     .title {

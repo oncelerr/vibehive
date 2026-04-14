@@ -102,7 +102,7 @@ export default function CaseStudyPage() {
           <div className={styles.testimonialRight}>
             <img src="/Assets/quote.png" alt="Quote" className={styles.quoteIcon} />
             <div className={styles.testimonialContent}>
-              <img src="/Assets/line.png" alt="" className={styles.verticalLine} />
+              <div className={styles.verticalLine} />
               <p className={styles.testimonialText}>"{data.testimonial.quote}"</p>
             </div>
           </div>

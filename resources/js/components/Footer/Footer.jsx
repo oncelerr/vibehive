@@ -73,6 +73,12 @@ const Footer = () => {
 						<img src="/Assets/vibehive.png" alt="" />
 						<p>Where Big Ideas Find Their <span>Digital Vibe</span></p>
 					</div>
+					<div className={styles.links_mobile}>   {/* new wrapper — see below */}
+						<NavLink label="Home" onClick={() => handleNavClick('/')} />
+						<NavLink label="About" onClick={() => handleNavClick('/about')} />
+						<NavLink label="Portfolio" onClick={() => handleNavClick('/our-works')} />
+						<NavLink label="Contact" onClick={() => handleNavClick('/contact')} />
+					</div>
 					<div className={styles.right}>
 						<div className={styles.rightitem}>
 							<img src="/Assets/mail.png" alt="" />

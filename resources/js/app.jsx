@@ -65,6 +65,7 @@ function AnimatedRoutes() {
 
             <Route path="/" element={<Curve><Home /></Curve>} />
             <Route path="/contact" element={<Curve><ContactUs /></Curve>} />
+            <Route path="/book-an-appointment" element={<Curve><ContactUs /></Curve>} />
             <Route path="/about" element={<Curve><About /></Curve>} />
             <Route path="/our-works" element={<Curve><OurWorks /></Curve>} />
 
