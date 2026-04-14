@@ -82,11 +82,11 @@ const Footer = () => {
 					<div className={styles.right}>
 						<div className={styles.rightitem}>
 							<img src="/Assets/mail.png" alt="" />
-							<p>itsvibehive@gmail.com</p>
+							<p>itsthevibehive@gmail.com</p>
 						</div>
 						<div className={styles.rightitem}>
 							<img src="/Assets/phone.png" alt="" />
-							<p>(001) 1231 3435</p>
+							<p>(+63) 921 892 7264</p>
 						</div>
 						<div className={styles.rightlinks}>
 							<SocialIcon src="/Assets/fb.png" alt="Facebook" url="https://www.facebook.com/itsvibehive" />
