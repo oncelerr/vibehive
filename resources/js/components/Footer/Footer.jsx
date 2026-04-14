@@ -24,6 +24,8 @@ const SocialIcon = ({ src, alt, url }) => {
 			onMouseEnter={() => setHovered(true)}
 			onMouseLeave={() => setHovered(false)}
 			style={{
+				width: '24px',
+				height: '24px',
 				cursor: 'pointer',
 				transition: 'transform 0.25s ease, opacity 0.25s ease',
 				transform: hovered ? 'translateY(-3px) scale(1.15)' : 'translateY(0) scale(1)',
