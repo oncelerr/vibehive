@@ -10,24 +10,19 @@ import { runTestimonialsAnimations } from './testimonialsAnimations';
 
 const feedbackData = [
   {
-    comment: "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete.",
-    name: "Christine M.",
-    company: "Kogh Cloud INC."
+    comment: "Their team was trustworthy and reliable from start to finish, consistently communicating and delivering on every promise. No challenge was too big, and the results proved that every peso spent was absolutely worth it.",
+    name: "Cherry G.",
+    company: "Premium Corporate Solutions"
   },
   {
-    comment: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    name: "John D.",
-    company: "Tech Solutions Ltd."
+    comment: "They bring great energy to the project and are truly ready to collaborate to achieve objectives. We saw an increase in web traffic and improved brand awareness after launch.",
+    name: "Caio Y.",
+    company: "KOGH Cloud"
   },
   {
-    comment: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.",
-    name: "Sarah K.",
-    company: "Creative Studio Co."
-  },
-  {
-    comment: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi.",
-    name: "Mark T.",
-    company: "Venture Labs"
+    comment: "The team at Vibe Hive was open to suggestions but still brought forward ideas that made the website stand out. Young, talented professionals who know how to collaborate effectively.",
+    name: "Sang H.",
+    company: "Vertical Talent Solutions"
   },
 ];
 
