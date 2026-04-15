@@ -26,7 +26,7 @@ const Home = () => {
           span={'Solution?'}
           description={"Book a free 30-minute discovery call. No pitch, no pressure. Just a real conversation about your business and whether we can help."}
           gradientBtn={"Start a project with us"}
-          whiteBtn={"contact us"}
+          whiteBtn={"Contact Us"}
         />
       </div>
     </>

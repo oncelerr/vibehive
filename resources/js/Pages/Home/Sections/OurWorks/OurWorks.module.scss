@@ -54,6 +54,14 @@
     z-index: 1;
 }
 
+.btnWrapper {
+    opacity: 0;
+    width: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .ourWorksCarousel {
     width: 1217px;
     height: 746px;
