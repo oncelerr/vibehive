@@ -12,24 +12,24 @@ import { useNavigate } from 'react-router-dom';
 const worksData = [
   {
     id: 1,
-    image: '/Assets/kogh_mockup.png',
-    tags: ['UX Research', 'Wireframe', 'Visual Design'],
-    title: 'Coca - Tech Startup Landing Page',
-    description: 'We start by getting to know our clients, their business goals, and their target audience. This involves conducting research, analyzing data, and discussing ideas with our clients to gain a deep understanding of their needs.',
+    image: '/Assets/pcs_mockup.png',
+    tags: ['Legal Services'],
+    title: 'Premium Corporate Solutions',
+    description: 'Inherited a website with poor UX, zero client management system, and critical security vulnerabilities, the outcome is Zero critical vulnerabilities post-penetration testing; launched in 6 weeks; clients now self-serve case tracking with no back-and-forth.',
   },
   {
     id: 2,
-    image: '/Assets/pcs_mockup.png',
-    tags: ['Development', 'Laravel', 'React'],
-    title: 'VibeHive - Agency Portfolio',
-    description: 'A full-stack web application built with Laravel and React, featuring a modern design and seamless user experience.',
+    image: '/Assets/kogh_mockup.png',
+    tags: ['Technology', 'Cloud Services'],
+    title: 'KOGH Cloud',
+    description: 'No effective web presence to communicate complex technical offerings; budget-conscious with past negative agency experience the outcome is Professional website launched in 4 weeks; increased web traffic and improved brand awareness in a competitive cloud market.',
   },
   {
     id: 3,
     image: '/Assets/vts.png',
-    tags: ['Branding', 'UI Design'],
-    title: 'PremiumCorp - Service Management',
-    description: 'Enterprise service request management system with a clean, intuitive interface designed for maximum productivity.',
+    tags: ['HR Business Process Outsourcing'],
+    title: 'Vertical Talent Solutions',
+    description: 'Outdated single-person no-code WordPress site undermining credibility with enterprise-level prospects the outcome is Full UI/UX and website transformation to enterprise-grade standard; optimized user journey for B2B HR decision-makers',
   },
 ];
 
